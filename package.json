@@ -51,5 +51,9 @@
   },
   "engines": {
     "node": "6.* || 8.* || >= 10.*"
+  },
+  "dependencies": {
+    "ember-toastr": "^1.7.2",
+    "toastr": "^2.1.4"
   }
 }

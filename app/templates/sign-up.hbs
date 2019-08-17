@@ -4,7 +4,46 @@
 <div class="ui stackable grid">
 	 <div class="four wide column"></div>
 	 <div class="eight wide column">
-	 	 <div class="ui raised segment"></div>
+	 	 <div class="ui green raised segment">
+				<h1 class="ui medium green header">Sign-Up for Aptool</h1>
+				<br>
+				<div class="ui form">
+					<div class="field">
+            <label for="">Enter Username</label>
+						<div class="ui left icon input">
+              <i class="user icon"></i>
+              {{input value=model.username type="text" placeholder="tyrion" enter=(action "redirect") }}
+            </div>
+					</div>
+					<div class="two fields">
+						<div class="field">
+              <label for="">Enter Firstname</label>
+              {{input value=model.firstname type="text" placeholder="Tyrion" enter=(action "redirect")}}
+            </div>
+						<div class="field">
+              <label for="">Enter Lastname</label>
+              {{input value=model.lastname type="text" placeholder="Lannister" enter=(action "redirect")}}
+            </div>
+					</div>
+					<div class="field">
+            <label for="">Enter Password</label>
+            <div class="ui left icon input">
+              <i class="lock icon"></i>
+              {{input value=model.password type="password" placeholder="redwine" enter=(action "redirect")}}
+            </div>
+          </div>
+					<div class="field">
+            <label for="">Enter Password Again</label>
+            <div class="ui left icon input">
+              <i class="lock icon"></i>
+              {{input value=this.secondPassword type="password" placeholder="redwine" enter=(action "redirect")}}
+            </div>
+          </div><br>
+          <div class="field">
+            <div class="ui fluid green button" {{action "register"}}>Register Me</div>
+          </div>
+				</div>
+			</div>
 	 </div>
 	 <div class="four wide column"></div>
 </div>
