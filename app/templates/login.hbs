@@ -1,1 +1,33 @@
-{{outlet}}
+<br>
+<br>
+<br>
+<div class="ui stackable grid">
+    <div class="four wide column"></div>
+    <div class="eight wide column">
+        <div class="ui green raised segment">
+            <h1 class="ui medium green header">Login to your Account</h1>
+            <br>
+            <div class="ui form">
+                <div class="field">
+                    <label for="">Enter Username</label>
+                    <div class="ui left icon input">
+                        <i class="user icon"></i>
+                        {{input value=this.username type="text" placeholder="username" enter=(action "redirect")}}
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="">Enter Password</label>
+                    <div class="ui left icon input">
+                        <i class="lock icon"></i>
+                        {{input value=this.password type="password" placeholder="password" enter=(action "redirect")}}
+                    </div>
+                </div>
+                <br>
+                <div class="field">
+                    <div class="ui fluid green button" >Login</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="four wide column"></div>
+</div>
