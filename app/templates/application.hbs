@@ -35,11 +35,11 @@
       <a class="item">Help</a>
       {{#if session.isAuthenticated}}
         <a class="item">
-          <button class="ui inverted basic button" {{action "authenticate"}}>Logout</button>
+          <button class="ui inverted basic button" {{action "invalidate"}}>Logout</button>
         </a>
       {{else}}
         {{#link-to "login" class="item"}}
-          <button class="ui inverted basic button">Login</button>
+          <button class="ui inverted basic button"{{action "authenticate"}}>Login</button>
         {{/link-to}}
       {{/if}}
       <div class="ui fitted divider"></div>

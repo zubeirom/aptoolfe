@@ -23,19 +23,12 @@ module.exports = function(environment) {
     }
   };
 
+
   if (environment === 'development') {
     ENV.host = 'http://localhost:3000'
-    ENV['ember-simple-auth-token'] = {
+    ENV['ember-simple-auth'] = {
       serverTokenEndpoint: 'http://localhost:3000/api/token',
-      refreshAccessTokens: true,
-      refreshLeeway: 18000, // refresh 5 minutes (300 seconds) before expiration
-      tokenExpirationInvalidateSession: true, // Enables session invalidation on token expiration
     };
-    // ENV.APP.LOG_RESOLVER = true;
-    // ENV.APP.LOG_ACTIVE_GENERATION = true;
-    // ENV.APP.LOG_TRANSITIONS = true;
-    // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
-    // ENV.APP.LOG_VIEW_LOOKUPS = true;
   }
 
   if (environment === 'test') {
