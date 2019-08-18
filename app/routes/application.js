@@ -4,5 +4,9 @@ import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mi
 
 export default Route.extend(ApplicationRouteMixin, {
     media: service(),
-    session: service()
+    session: service(),
+
+    model() {
+        return this.store.findAll('account');
+    }
 });
