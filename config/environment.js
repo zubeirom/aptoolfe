@@ -28,6 +28,7 @@ module.exports = function(environment) {
     ENV.host = 'http://localhost:3000'
     ENV['ember-simple-auth'] = {
       serverTokenEndpoint: 'http://localhost:3000/api/token',
+      routeAfterAuthentication: 'applications'
     };
   }
 

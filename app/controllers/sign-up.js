@@ -22,10 +22,10 @@ export default Controller.extend({
                     try {
                         set(this, 'secondPassword', "");
                         await this.model.save();
-                        //let { user_name, password } = this.model;
-                        // this.get('session').authenticate('authenticator:jwt', user_name, password).catch((reason) => {
-                        //     this.set('errorMessage', reason.error || reason);
-                        // });
+                        let { user_name, password } = this.model;
+                        this.get('session').authenticate('authenticator:jwt', user_name, password).catch((reason) => {
+                            this.set('errorMessage', reason.error || reason);
+                        });
                     } catch (error) {
                         console.log(error);
                         this.toastr.error('Account exists already', 'Error')
