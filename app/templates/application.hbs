@@ -2,10 +2,12 @@
   <div class="ui inverted borderless massive top fixed fluid menu">
     <a class="header item">Application Process Tool</a>
     <div class="right menu">
-      <a class="item">Dashboard</a> 
-      <a class="item">Settings</a>
-      <a class="item">Profile</a> 
-      <a class="item">Help</a>
+      {{#link-to "applications" class="item"}}
+        Dashboard
+      {{/link-to}}
+      <a class="item">Jobs</a> 
+      <a class="item">My Account</a>
+      <a class="item">About</a>
       {{#if session.isAuthenticated}}
         <a class="item">
           <button class="ui inverted basic button" {{action "invalidate"}} >Logout</button>
@@ -30,9 +32,9 @@
     </div>
     <div class="ui vertical borderless inverted fluid menu">
       <a class="item">Dashboard</a> 
-      <a class="item">Settings</a>
-      <a class="item">Profile</a> 
-      <a class="item">Help</a>
+      <a class="item">Jobs</a>
+      <a class="item">My Account</a>
+      <a class="item">About</a>
       {{#if session.isAuthenticated}}
         <a class="item">
           <button class="ui inverted basic button" {{action "invalidate"}}>Logout</button>
