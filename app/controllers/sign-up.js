@@ -20,15 +20,17 @@ export default Controller.extend({
             if (this.checklist(this.model)) {
                 if (this.model.password === this.secondPassword) {
                     try {
-                        set(this, 'secondPassword', "");
                         await this.model.save();
-                        let { user_name, password } = this.model;
-                        this.get('session').authenticate('authenticator:jwt', user_name, password).catch((reason) => {
+                        const { username } = this.model;
+                        this.get('session').authenticate('authenticator:oauth2', username, this.secondPassword).catch((reason) => {
                             this.set('errorMessage', reason.error || reason);
+                            console.log(reason.error || reason)
                         });
+                        set(this, 'secondPassword', "");
                     } catch (error) {
                         console.log(error);
-                        this.toastr.error('Account exists already', 'Error')
+                        this.toastr.error('Account exists already', 'Error');
+                        this.transitionToRoute('sign-up')
                     }
                 } else {
                     this.toastr.warning("Passwords don't match", 'Warning')
@@ -38,6 +40,10 @@ export default Controller.extend({
 
         redirect() {
             this.send('register')
+        },
+
+        togglePassword() {
+            this.toggleProperty('showPassword')
         }
-    }
+    } 
 });
