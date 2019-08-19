@@ -9,13 +9,9 @@ export default Route.extend(ApplicationRouteMixin, {
 
     model() {
         if (this.session.isAuthenticated) {
-            return this.store.findAll('account');
+            return this.store.findAll('account').then(account => {
+                return account.get('firstObject')
+            })
         }
     },
-
-    afterModel(model) {
-        model = model.toArray();
-        model = model[0];
-        console.log(model)
-    }
 });
