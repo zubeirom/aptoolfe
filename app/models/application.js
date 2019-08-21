@@ -1,7 +1,7 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-    account: DS.belongsTo(),
+    account: DS.belongsTo({ async: false }),
     company: DS.attr(),
     created: DS.attr(),
     status: DS.attr(),
