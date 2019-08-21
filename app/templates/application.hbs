@@ -2,11 +2,13 @@
   <div class="ui inverted borderless massive top fixed fluid menu">
     <a class="header item">Application Process Tool</a>
     <div class="right menu">
+      {{#link-to "applications.new" class="item"}}
+        <i class="plus icon"></i> Add Application
+      {{/link-to}}
       {{#link-to "applications" class="item"}}
         Dashboard
       {{/link-to}}
       <a class="item">Jobs</a> 
-      <a class="item">Companies</a>
       <a class="item">My Account</a>
       <a class="item">About</a>
       {{#if session.isAuthenticated}}
