@@ -9,7 +9,9 @@ const Router = EmberRouter.extend({
 Router.map(function() {
   this.route('login');
   this.route('sign-up');
-  this.route('applications');
+  this.route('applications', function() {
+    this.route('new');
+  });
   this.route('terms-and-condition');
   this.route('privacy-policy');
 });
