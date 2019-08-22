@@ -5,8 +5,10 @@ export default DS.Model.extend({
     company: DS.attr(),
     created: DS.attr(),
     status: DS.attr(),
-    submissionType: DS.attr(),
     source: DS.attr(),
     recruiters: DS.attr(),
-    occupation: DS.attr()
+    occupation: DS.attr(),
+    note: DS.attr(),
+    posting_url: DS.attr(),
+    deadline: DS.attr(),
 });
