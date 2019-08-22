@@ -6,12 +6,19 @@
     <h1 class="ui large dividing {{this.model.statusColor}} header">{{this.model.company}} : {{this.model.occupation}}
     </h1> <br>
   </span>
-  {{#link-to "applications.info.edit" this.model.id}}
-    <button class="ui {{this.model.statusColor}} inverted button"><i   class="write icon"></i>Edit Application</button> 
-  {{/link-to}}
-  {{#link-to "applications.info.event.new" this.model.id}}
-    <button class="ui primary button"><i class="plus icon"></i>Add Event</button><br><br>
-  {{/link-to}}
+  {{#if deleteView}}
+    By deleting this Application your are removing all Events and Application Informations <br><br>
+    <button class="ui inverted red button" {{action "delete"}}>Continue</button>
+    <button class="ui inverted primary button" {{action (mut deleteView) false}}>Cancel</button>
+  {{else}}
+    {{#link-to "applications.info.edit" this.model.id}}
+      <button class="ui {{this.model.statusColor}} inverted button"><i   class="write icon"></i>Edit Application</button> 
+    {{/link-to}}
+    {{#link-to "applications.info.event.new" this.model.id}}
+      <button class="ui primary button"><i class="plus icon"></i>Add Event</button><br><br>
+    {{/link-to}}
+    <button class="ui red button" {{action (mut deleteView) true}}><i class="trash icon"></i>Delete Application</button>
+  {{/if}}
   <div class="ui padded stackable grid">
     <div class="ui eight wide column">
       <h2 class="ui medium dividing header">Application Information</h2>
