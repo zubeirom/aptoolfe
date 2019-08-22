@@ -15,9 +15,9 @@ export default DS.Model.extend({
     statusColor: computed('status', function () {
         switch (this.status) {
             case 'In Progress':
-                return 'grey'
-            case 'Submitted':
                 return 'brown'
+            case 'Submitted':
+                return 'teal'
             case 'Cancelled':
                 return 'orange'
             case 'Offer':

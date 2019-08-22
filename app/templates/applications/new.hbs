@@ -73,9 +73,7 @@
 				<div class="field">
 					<label for="">Notes</label>
 					{{textarea value=this.model.note placeholder="Enter notes..." maxlength="255"}}
-				</div><br>
-				<button class="ui black button" {{action "redirect"}}><i class="angle left icon"></i>Back to Dashboard</button>					
-				<button class="ui green button" {{action "save"}} type="submit"><i class="save icon"></i>Save Application</button>
+				</div>
 			</div>
   	</div>
   	<div class="eight wide column">
@@ -99,5 +97,7 @@
 				</div>
 			</div>
 		</div>
-  </div>
+  </div> <br>
+	<button class="ui black button" {{action "redirect"}}><i class="angle left icon"></i>Back to Dashboard</button> &nbsp;&nbsp;&nbsp;
+	<button class="ui green button" {{action "save"}} type="submit"><i class="save icon"></i>Save Application</button>
 </div>

@@ -34,7 +34,12 @@
       </div>
     </div>
     <div class="ui vertical borderless inverted fluid menu">
-      <a class="item">Dashboard</a> 
+      {{#link-to "applications.new" class="item"}}
+        <i class="plus icon"></i> Add Application
+      {{/link-to}}
+      {{#link-to "applications" class="item"}}
+        Dashboard
+      {{/link-to}}
       <a class="item">Jobs</a>
       <a class="item">My Account</a>
       <a class="item">About</a>
