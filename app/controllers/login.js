@@ -6,7 +6,7 @@ export default Controller.extend({
     session: service(),
 
     isValid(username, password) {
-        if (username === undefined || username === "" && password === undefined || password === "") {
+        if (username === undefined || username === '' && password === undefined || password === '') {
             this.toastr.warning('Please enter something', 'Warning');
             return false
         }

@@ -26,14 +26,14 @@ export default Controller.extend({
                             this.set('errorMessage', reason.error || reason);
                             console.log(reason.error || reason)
                         });
-                        set(this, 'secondPassword', "");
+                        set(this, 'secondPassword', '');
                     } catch (error) {
                         console.log(error);
                         this.toastr.error('Account exists already', 'Error');
                         this.transitionToRoute('sign-up')
                     }
                 } else {
-                    this.toastr.warning("Passwords don't match", 'Warning')
+                    this.toastr.warning('Passwords don\'t match', 'Warning')
                 }
             }
         },
