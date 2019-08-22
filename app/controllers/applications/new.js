@@ -1,20 +1,26 @@
 import Controller from '@ember/controller';
 import { set } from '@ember/object';
+import { inject as service } from '@ember/service';
 
 export default Controller.extend({
+    toastr: service('toast'),
 
     actions: {
         async save() {
             try {
-                const recruiter = {
-                    name: this.recruiterName,
-                    email: this.recruiterMail,
-                    tel: this.recruiterTel,
-                    fax: this.recruiterFax
-                };
-                set(this.model.application, 'recruiter', recruiter);
-                await this.model.application.save();
-                //this.transitionToRoute('applications')
+                if (this.model.application.company && this.model.application.occupation) {
+                    const recruiter = {
+                        name: this.recruiterName,
+                        email: this.recruiterMail,
+                        tel: this.recruiterTel,
+                        fax: this.recruiterFax
+                    };
+                    set(this.model.application, 'recruiter', recruiter);
+                    await this.model.application.save();
+                    this.transitionToRoute('applications')
+                } else {
+                    this.toastr.error('Please add company and occupation', 'Warning');
+                }
             } catch (error) {
                 console.log(error);
             }

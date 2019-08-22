@@ -13,6 +13,5 @@ export default Route.extend(AuthenticatedRouteMixin, {
 
     afterModel(model) {
         set(model, 'account', model.account.get('firstObject'))
-        console.log(model)
     }
 });
