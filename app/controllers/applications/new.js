@@ -1,9 +1,24 @@
 import Controller from '@ember/controller';
+import { set } from '@ember/object';
 
 export default Controller.extend({
 
     actions: {
-
+        async save() {
+            try {
+                const recruiter = {
+                    name: this.recruiterName,
+                    email: this.recruiterMail,
+                    tel: this.recruiterTel,
+                    fax: this.recruiterFax
+                };
+                set(this.model.application, 'recruiter', recruiter);
+                await this.model.application.save();
+                //this.transitionToRoute('applications')
+            } catch (error) {
+                console.log(error);
+            }
+        }
     },
     init() {
 

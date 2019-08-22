@@ -6,7 +6,7 @@ export default DS.Model.extend({
     created: DS.attr(),
     status: DS.attr(),
     source: DS.attr(),
-    recruiters: DS.attr(),
+    recruiter: DS.attr(),
     occupation: DS.attr(),
     note: DS.attr(),
     posting_url: DS.attr(),

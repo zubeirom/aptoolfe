@@ -77,7 +77,7 @@
 				{{#link-to "applications"}}
 				  <button class="ui black button"><i class="angle left icon"></i>Back to Dashboard</button>					
 				{{/link-to}}
-				<button class="ui green button"><i class="save icon"></i>Save Application</button>
+				<button class="ui green button" {{action "save"}}><i class="save icon"></i>Save Application</button>
 			</div>
   	</div>
   	<div class="eight wide column">
@@ -93,7 +93,7 @@
 				</div>
 				<div class="field">
 					<label for="">Tel</label>
-					{{input value=this.recuiterTel placeholder="Enter recruiter tel..."}}
+					{{input value=this.recruiterTel placeholder="Enter recruiter tel..."}}
 				</div>
 				<div class="field">
 					<label for="">Fax</label>
