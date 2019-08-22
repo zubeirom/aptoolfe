@@ -37,7 +37,7 @@
         <thead>
           <tr>
             <th>Status</th>
-            <th>Go To Posting</th>
+            <th>Go To Website</th>
             <th>Company</th>
             <th>Position</th>
             <th>Deadline</th>
@@ -46,7 +46,11 @@
         <tbody>
           {{#each model as |application|}} 
             <tr>
-              <td><a class="ui {{application.statusColor}} label"><i class="eye icon"></i> {{application.status}}</a></td>
+              <td>
+                {{#link-to "applications.info" application.id}}
+                  <a class="ui {{application.statusColor}} label"><i class="eye icon"></i> {{application.status}}</a>  
+                {{/link-to}}
+              </td>
               <td>
                 {{#if application.posting_url}}
                   <a href={{application.posting_url}}>

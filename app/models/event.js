@@ -5,5 +5,6 @@ export default DS.Model.extend({
     location: DS.attr(),
     contactPerson: DS.attr(),
     application: DS.belongsTo(),
-    date: DS.attr()
+    date: DS.attr(),
+    note: DS.attr(),
 });

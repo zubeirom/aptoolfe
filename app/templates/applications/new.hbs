@@ -36,7 +36,7 @@
 				<h2 class="ui medium dividing header">Optional fields</h2>
 				<div class="field">
 					<label for="">Status of your application</label>
-					{{#ui-dropdown class="search selection" allowAdditions=true selected=this.model.status onChange=(action (mut this.status)) as |execute mapper|}}
+					{{#ui-dropdown class="search selection" allowAdditions=true selected=this.model.status onChange=(action (mut this.model.status)) as |execute mapper|}}
 					  <div class="default text">Enter status...</div>
 					  <i class="dropdown icon"></i>
 					  <div class="menu">
@@ -63,7 +63,7 @@
 					{{/ui-dropdown}}
 				</div>
 				<div class="field">
-					<label for="">Link of the posting</label>
+					<label for="">Website Link to quickly go to Career Center</label>
 					{{input value=this.posting_url placeholder="Enter url..." type="text"}}
 				</div>
 				<div class="field">

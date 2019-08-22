@@ -11,6 +11,16 @@ Router.map(function() {
   this.route('sign-up');
   this.route('applications', function() {
     this.route('new');
+    this.route('info', {path: ':application_id'},function() {
+      this.route('edit');
+
+      this.route('event', function() {
+        this.route('info', function() {
+          this.route('edit');
+        });
+        this.route('new');
+      });
+    });
   });
   this.route('terms-and-condition');
   this.route('privacy-policy');
