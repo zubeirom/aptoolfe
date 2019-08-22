@@ -8,40 +8,44 @@ export default Controller.extend({
     actions: {
         async save() {
             try {
-                if (this.model.application.company && this.model.application.occupation) {
+                if (this.model.company && this.model.occupation) {
                     const recruiter = {
                         name: this.recruiterName,
                         email: this.recruiterMail,
                         tel: this.recruiterTel,
                         fax: this.recruiterFax
                     };
-                    set(this.model.application, 'recruiter', recruiter);
-                    await this.model.application.save();
-                    this.transitionToRoute('applications')
+                    set(this.model, 'recruiter', recruiter);
+                    await this.model.save();
+                    this.transitionToRoute('/applications')
                 } else {
                     this.toastr.error('Please add company and occupation', 'Warning');
                 }
             } catch (error) {
                 console.log(error);
             }
+        },
+        redirect() {
+            this.model.deleteRecord();
+            this.transitionToRoute('/applications')
         }
     },
-    init() {
+   async init() {
 
         this._super(...arguments);
-        this.companies = [
+        this.companies = await [
             'Apple', 'Microsoft', 'Amazon', 'Alphabet', 'Berkshire Hathaway', 'Facebook', 'Alibaba', 'Tencent Holdings', 'JPMorgan Chase', 'Johnson & Johnson', 'Visa', 'ExxonMobil', 'ICBC', 'Walmart', 'Bank of America', 'Nestle', 'Samsung Electronics', 'Procter & Gamble', 'Royal Dutch Shell', 'Intel', 'Cisco Systems', 'Mastercard', 'Verizon Communications', 'Walt Disney', 'AT&T', 'Chevron', 'Home Depot', 'China Constructionbank', 'Nike', 'Taiwan Semiconductor', 'Roche Holding', 'Ping An Insurance Group', 'Pfizer', 'Wells Fargo', 'Boeing', 'UnitedHealth Group', 'Coca-Cola', 'PetroChina', 'China Mobile', 'Agriculturalbank of China', 'Comcast', 'Merck & Co', 'Oracle', 'PepsiCo', 'Toyota Motor', 'Netlix', 'Unilever', 'Total', 'LOreal', 'SAP', 'LinkedIn', 'Google', 'Southwest Airlines', 'Salesforce', 'HubSpot', 'McKinsey & Company', 'Hilton', 'Cisco', 'Ultimate Software', 'Uber', 'Lyft', 'Tesla', 'Deloitte', 'McDonalds', 'PayPal', 'Honeywell International', 'Accenture', 'NVIDIA', 'Texas Instruments', 'Costco Wholesale', 'Allianz', 'Rio Tinto', 'Bayerische Motorwerke', 'AUDI', 'Daimler', 'Volkswagen' 
         ];
 
-        this.statuses = [
+        this.statuses = await [
             'In Progress', 'Submitted', 'Cancelled', 'Offer', 'Denied', 'On-Site', 'Phone Screen', 'Coding Challenge'
         ]
 
-        this.sources = [
+        this.sources = await [
             'Indeed', 'LinkedIn', 'Employee', 'Recruiter', 'Google Search', 'Glassdoor'
         ]
 
-        this.occupations = [
+        this.occupations = await [
             'accountant',
             'actor',
             'actuary',

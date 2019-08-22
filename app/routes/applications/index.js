@@ -5,4 +5,13 @@ export default Route.extend(AuthenticatedRouteMixin, {
     model() {
         return this.store.findAll('application')
     },
+
+    afterModel(model) {
+        const modelArr = model.toArray();
+        modelArr.forEach(application => {
+            if (!application.id) {
+                application.deleteRecord();
+            }
+        });
+    }
 });

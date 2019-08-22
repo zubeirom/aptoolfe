@@ -7,7 +7,7 @@
 			<div class="ui form">
 				<div class="required field">
 					<label for="">Where are you applying?</label>
-					{{#ui-dropdown class="search selection" allowAdditions=true selected=this.model.application.company onChange=(action (mut this.model.application.company)) as |execute mapper|}}
+					{{#ui-dropdown class="search selection" allowAdditions=true selected=this.model.company onChange=(action (mut this.model.company)) as |execute mapper|}}
 					  <div class="default text">Enter name...</div>
 					  <i class="dropdown icon"></i>
 					  <div class="menu">
@@ -21,7 +21,7 @@
 				</div>
 				<div class="required field">
 					<label for="">What position do you apply for?</label>
-					{{#ui-dropdown class="search selection" allowAdditions=true selected=this.model.application.occupation onChange=(action (mut this.model.application.occupation)) as |execute mapper|}}
+					{{#ui-dropdown class="search selection" allowAdditions=true selected=this.model.occupation onChange=(action (mut this.model.occupation)) as |execute mapper|}}
 					  <div class="default text">Enter position...</div>
 					  <i class="dropdown icon"></i>
 					  <div class="menu">
@@ -36,7 +36,7 @@
 				<h2 class="ui medium dividing header">Optional fields</h2>
 				<div class="field">
 					<label for="">Status of your application</label>
-					{{#ui-dropdown class="search selection" allowAdditions=true selected=this.model.application.status onChange=(action (mut this.model.application.status)) as |execute mapper|}}
+					{{#ui-dropdown class="search selection" allowAdditions=true selected=this.model.status onChange=(action (mut this.status)) as |execute mapper|}}
 					  <div class="default text">Enter status...</div>
 					  <i class="dropdown icon"></i>
 					  <div class="menu">
@@ -50,7 +50,7 @@
 				</div>
 				<div class="field">
 					<label for="">How did you find out about the job?</label>
-					{{#ui-dropdown class="search selection" allowAdditions=true selected=this.model.application.source onChange=(action (mut this.model.application.source)) as |execute mapper|}}
+					{{#ui-dropdown class="search selection" allowAdditions=true selected=this.model.source onChange=(action (mut this.model.source)) as |execute mapper|}}
 					  <div class="default text">Enter source...</div>
 					  <i class="dropdown icon"></i>
 					  <div class="menu">
@@ -64,20 +64,18 @@
 				</div>
 				<div class="field">
 					<label for="">Link of the posting</label>
-					{{input value=this.model.application.posting_url placeholder="Enter url..." type="text"}}
+					{{input value=this.posting_url placeholder="Enter url..." type="text"}}
 				</div>
 				<div class="field">
 					<label for="">When is the deadline?</label>
-					{{input value=this.model.application.deadine placeholder="" type="date"}}
+					{{input value=this.model.deadline placeholder="" type="date"}}
 				</div>
 				<div class="field">
 					<label for="">Notes</label>
-					{{textarea value=this.model.application.note placeholder="Enter notes..." maxlength="255"}}
+					{{textarea value=this.model.note placeholder="Enter notes..." maxlength="255"}}
 				</div><br>
-				{{#link-to "applications"}}
-				  <button class="ui black button"><i class="angle left icon"></i>Back to Dashboard</button>					
-				{{/link-to}}
-				<button class="ui green button" {{action "save"}}><i class="save icon"></i>Save Application</button>
+				<button class="ui black button" {{action "redirect"}}><i class="angle left icon"></i>Back to Dashboard</button>					
+				<button class="ui green button" {{action "save"}} type="submit"><i class="save icon"></i>Save Application</button>
 			</div>
   	</div>
   	<div class="eight wide column">
