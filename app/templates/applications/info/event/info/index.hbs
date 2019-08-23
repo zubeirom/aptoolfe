@@ -1,1 +1,78 @@
-sdfanvdanfvoadnfvadfin
+<div class="ui raised {{this.model.application.statusColor}} segment">
+  <br>
+  <a class="ui {{this.model.application.statusColor}} ribbon huge label">
+    {{this.model.application.status}}
+  </a> <br><br>
+  <span>
+    <h1 class="ui large dividing {{this.model.application.statusColor}} header">
+      {{this.model.name}}
+      <div class="sub header">{{this.model.application.company}} : {{this.model.application.occupation}}</div>
+    </h1>
+  </span>
+  <div class="ui padded stackable grid">
+    <div class="eight wide column">
+      <h2 class="ui medium dividing header">Event Information</h2>
+      <div class="ui form">
+        <div class="field">
+          <label for="">Name: </label>
+          {{this.model.name}}
+        </div>
+        <div class="field">
+          <label for="">Date of the Event: </label>
+          {{this.model.date}}
+        </div>
+        <div class="field">
+          <label for="">Note: </label>
+          {{#if this.model.note}}
+            {{this.model.note}}
+          {{else}}
+            <i>Not Available</i>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+    <div class="eight wide column">
+      <h2 class="ui medium dividing header">Contact Person</h2>
+      <div class="ui form">
+        <div class="field">
+          <label for="">Name: </label>
+          {{#if this.model.contact_person.name}}
+            {{this.model.contact_person.name}}
+          {{else}}
+            <i>Not Available</i>
+          {{/if}}
+        </div>
+        <div class="field">
+          <label for="">E-mail: </label>
+          {{#if this.model.contact_person.email}}
+            {{this.model.contact_person.email}}
+          {{else}}
+            <i>Not Available</i>
+          {{/if}}
+        </div>
+        <div class="field">
+          <label for="">Tel: </label>
+          {{#if this.model.contact_person.tel}}
+            {{this.model.contact_person.tel}}
+          {{else}}
+            <i>Not Available</i>
+          {{/if}}
+        </div>
+        <div class="field">
+          <label for="">Fax: </label>
+          {{#if this.model.contact_person.fax}}
+            {{this.model.contact_person.fax}}
+          {{else}}
+            <i>Not Available</i>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+    <h2 class="ui medium dividing header">Location</h2>
+    {{#if this.model.location.street}}
+      map
+    {{else}}
+      Not Available! To see map, edit event and add location information
+    {{/if}}
+  </div>
+</div>
