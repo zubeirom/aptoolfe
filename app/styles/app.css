@@ -13,7 +13,15 @@ body {
   font-family: 'Montserrat', sans-serif !important;
 }
 input {
-    border-radius: 0px !important; 
+  border-radius: 0px !important; 
+}
+
+.label {
+  border-radius: 5px !important;
+}
+
+.ribbon {
+  border-radius: 0px !important;
 }
 
 .header {
