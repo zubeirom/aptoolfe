@@ -1,0 +1,101 @@
+{{! template-lint-disable }}
+<div class="ui raised {{this.model.statusColor}} segment">
+  <br>
+  <a class="ui {{this.model.statusColor}} ribbon huge label">{{this.model.status}}</a><br><br>
+  <span>
+    <h1 class="ui large dividing {{this.model.statusColor}} header">{{this.model.company}} : {{this.model.occupation}}
+    </h1> <br>
+  </span>
+  {{#if deleteView}}
+    By deleting this Application your are removing all Events and Application Informations <br><br>
+    <button class="ui inverted red button" {{action "delete"}}>Continue</button>
+    <button class="ui inverted primary button" {{action (mut deleteView) false}}>Cancel</button>
+  {{else}}
+    {{#link-to "applications.info.edit" this.model.id}}
+      <button class="ui {{this.model.statusColor}} inverted button"><i   class="write icon"></i>Edit Application</button> 
+    {{/link-to}}
+    {{#link-to "applications.info.event.new" this.model.id}}
+      <button class="ui primary button"><i class="plus icon"></i>Add Event</button><br><br>
+    {{/link-to}}
+    <button class="ui red button" {{action (mut deleteView) true}}><i class="trash icon"></i>Delete Application</button>
+  {{/if}}
+  <div class="ui padded stackable grid">
+    <div class="ui eight wide column">
+      <h2 class="ui medium dividing header">Application Information</h2>
+      <div class="ui form">
+        <div class="field">
+          <label for="">Company</label>
+          {{this.model.company}}
+        </div>
+        <div class="field">
+          <label for="">Position</label>
+          {{this.model.occupation}}
+        </div>
+        <div class="field">
+          <label for="">Status</label>
+          {{this.model.status}}
+        </div>
+        <div class="field">
+          <label for="">Deadline</label>
+          {{#if this.model.deadline}}
+            {{this.model.deadlline}}
+          {{else}}
+            <i>Not Available</i>
+          {{/if}}
+        </div>
+        <div class="field">
+          <label for="">Source</label>
+          {{#if this.model.source}}
+            {{this.model.source}}
+          {{else}}
+            <i>Not Available</i>  
+          {{/if}}
+        </div>
+        <div class="field">
+          <label for="">Note</label>
+          {{#if this.model.note}}
+            {{this.model.note}}
+          {{else}}
+            <i>Not Available</i>
+          {{/if}}
+        </div>
+        <h2 class="ui medium dividing header">Recruiter</h2>
+        <div class="field">
+          <label for="">Name</label>
+          {{#if this.model.recruiter.name}}
+            {{this.model.recruiter.name}}
+          {{else}}
+            <i>Not Available</i>
+          {{/if}}
+        </div>
+        <div class="field">
+          <label for="">Email</label>
+          {{#if this.model.recruiter.email}}
+            {{this.model.recruiter.email}}
+          {{else}}
+            <i>Not Available</i>
+          {{/if}}
+        </div>
+        <div class="field">
+          <label for="">Tel</label>
+          {{#if this.model.recruiter.tel}}
+            {{this.model.recruiter.tel}}
+          {{else}}
+            <i>Not Available</i>
+          {{/if}}
+        </div>
+        <div class="field">
+          <label for="">Fax</label>
+          {{#if this.model.recruiter.fax}}
+            {{this.model.recruiter.fax}}
+          {{else}}
+            <i>Not Available</i>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+    <div class="eight wide column">
+      <h2 class="ui medium dividing header">Events</h2>
+    </div>
+  </div>
+</div>

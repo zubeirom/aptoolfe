@@ -9,6 +9,7 @@ export default DS.Model.extend({
     source: DS.attr(),
     recruiter: DS.attr(),
     occupation: DS.attr(),
+    events: DS.hasMany('event', { async: false }),
     note: DS.attr(),
     posting_url: DS.attr(),
     deadline: DS.attr(),
