@@ -1,68 +1,68 @@
 <div class="ui raised {{this.model.statusColor}} segment">
-	<br>
-	<a class="ui {{this.model.statusColor}} ribbon huge label">{{this.model.status}}</a><br><br>
-	<span>
-		<h1 class="ui large dividing {{this.model.statusColor}} header">
-			Add Event
-			<div class="sub header">{{this.model.company}} : {{this.model.occupation}}</div>
-		</h1> <br>
-	</span>
-	<div class="ui padded stackable grid">
-		<div class="ui eight wide column">
-			<h2 class="ui medium dividing header">Required fields</h2>
-		  <div class="ui form">
-		  	<div class="required field">
-		  		<label for="">Name of the Event</label>
-		  		{{input value=model.event.name type="text" placeholder="For e.g On-Site interview"}}
-		  	</div>
-				<div class="required field">
-					<label for="">When is the Event</label>
-					{{input value=model.event.date type="datetime-local"}}
-				</div>
-			  <h2 class="ui medium dividing header">Location</h2>
-				<div class="field">
-					<label for="">Street</label>
-					{{input value=this.street type="text" placeholder="Enter Street name..."}}
-				</div>
-				<div class="field">
-					<label for="">Postal Code</label>
-					{{input value=this.postalCode type="number" placeholder="Enter postal code..."}}
-				</div>
-				<div class="field">
-					<label for="">City</label>
-					{{input value=this.city type="text" placeholder="Enter city..."}}
-				</div>
-				<div class="ui divider"></div>
-				<div class="field">
-					<label for="">Note</label>
-					{{textarea value=this.model.event.note maxlength="400" placeholder="Enter note..."}}
-				</div>
-		  </div>
-		</div>
-		<div class="ui eight wide column">
-			<h2 class="ui medium dividing header">Contact Person</h2>
-			<div class="ui form">
-				<div class="field">
-					<label for="">Name</label>
-					{{input value=this.recruiterName placeholder="Enter name..." type="text"}}
-				</div>
-				<div class="field">
-					<label for="">E-Mail</label>
-					{{input value=this.recruiterMail placeholder="Enter mail..." type="email"}}
-				</div>
-				<div class="field">
-					<label for="">Tel</label>
-					{{input value=this.recruiterTel placeholder="Enter tel..." type="tel"}}
-				</div>
-				<div class="field">
-					<label for="">Fax</label>
-					{{input value=this.recruiterFax placeholder="Enter fax..." type="text"}}
-				</div>
-			</div>
-		</div>
-	</div>
-	{{#link-to "applications.info" this.model}}
-		<button class="ui black button"><i class="angle left icon"></i>Back to Application</button>
-	{{/link-to}}
-	<button class="ui {{this.model.statusColor}} button" {{action "save"}}><i class="save icon"></i>Save Event</button>
+  <br>
+  <a class="ui {{this.model.statusColor}} ribbon huge label">{{this.model.status}}</a><br><br>
+  <span>
+    <h1 class="ui large dividing {{this.model.statusColor}} header">
+      Add Event
+      <div class="sub header">{{this.model.company}} : {{this.model.occupation}}</div>
+    </h1> <br>
+  </span>
+  <div class="ui padded stackable grid">
+    <div class="ui eight wide column">
+      <h2 class="ui medium dividing header">Required fields</h2>
+      <div class="ui form">
+        <div class="required field">
+          <label for="">Name of the Event</label>
+          {{input value=model.event.name type="text" placeholder="For e.g On-Site interview"}}
+        </div>
+        <div class="required field">
+          <label for="">When is the Event</label>
+          {{input value=model.event.date type="datetime-local"}}
+        </div>
+        <h2 class="ui medium dividing header">Location</h2>
+        <div class="field">
+          <label for="">Street</label>
+          {{input value=this.street type="text" placeholder="Enter Street name..."}}
+        </div>
+        <div class="field">
+          <label for="">Postal Code</label>
+          {{input value=this.postalCode type="number" placeholder="Enter postal code..."}}
+        </div>
+        <div class="field">
+          <label for="">City</label>
+          {{input value=this.city type="text" placeholder="Enter city..."}}
+        </div>
+        <div class="ui divider"></div>
+        <div class="field">
+          <label for="">Note</label>
+          {{textarea value=this.model.event.note maxlength="400" placeholder="Enter note..."}}
+        </div>
+      </div>
+    </div>
+    <div class="ui eight wide column">
+      <h2 class="ui medium dividing header">Contact Person</h2>
+      <div class="ui form">
+        <div class="field">
+          <label for="">Name</label>
+          {{input value=this.recruiterName placeholder="Enter name..." type="text"}}
+        </div>
+        <div class="field">
+          <label for="">E-Mail</label>
+          {{input value=this.recruiterMail placeholder="Enter mail..." type="email"}}
+        </div>
+        <div class="field">
+          <label for="">Tel</label>
+          {{input value=this.recruiterTel placeholder="Enter tel..." type="tel"}}
+        </div>
+        <div class="field">
+          <label for="">Fax</label>
+          {{input value=this.recruiterFax placeholder="Enter fax..." type="text"}}
+        </div>
+      </div>
+    </div>
+  </div>
+  {{#link-to "applications.info" this.model}}
+    <button class="ui black button"><i class="angle left icon"></i>Back to Application</button>
+  {{/link-to}}
+  <button class="ui {{this.model.statusColor}} button" {{action "save"}}><i class="save icon"></i>Save Event</button>
 </div>
