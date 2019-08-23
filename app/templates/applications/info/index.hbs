@@ -15,7 +15,7 @@
       <button class="ui {{this.model.statusColor}} inverted button"><i   class="write icon"></i>Edit Application</button> 
     {{/link-to}}
     {{#link-to "applications.info.event.new" this.model.id}}
-      <button class="ui primary button"><i class="plus icon"></i>Add Event</button><br><br>
+      <button class="ui primary button"><i class="plus icon"></i>Add Event</button>
     {{/link-to}}
     <button class="ui red button" {{action (mut deleteView) true}}><i class="trash icon"></i>Delete Application</button>
   {{/if}}
@@ -96,6 +96,32 @@
     </div>
     <div class="eight wide column">
       <h2 class="ui medium dividing header">Events</h2>
+      <div class="ui ordered list">
+        <div class="ui divided items">
+          {{#each this.model.events as |event|}}
+            <div class="item">
+              <div class="content">
+                <a class="header">{{event.name}}</a>
+                <div class="meta">
+                  <span class="cinema">{{event.date}}</span>
+                </div>
+                <div class="description">
+                  {{#if event.note}}
+                    <p>{{event.note}}</p>
+                  {{else}}
+                    <i>Not Available</i>
+                  {{/if}}
+                </div>
+                <div class="extra">
+                  {{#link-to "applications.info.event.info" event.id}}
+                    <div class="ui {{this.model.statusColor}} label">Go To Event</div>
+                  {{/link-to}}
+                </div>
+              </div>
+            </div>
+          {{/each}}
+        </div>
+      </div>
     </div>
   </div>
 </div>

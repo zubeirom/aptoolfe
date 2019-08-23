@@ -15,7 +15,7 @@ Router.map(function() {
       this.route('edit');
 
       this.route('event', function() {
-        this.route('info', function() {
+        this.route('info', {path: ':event_id'}, function() {
           this.route('edit');
         });
         this.route('new');
