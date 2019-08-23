@@ -1,103 +1,104 @@
 {{! template-lint-disable }}
 <div class="ui raised green segment"><br>
   <div class="ui padded stackable grid">
-		<h1 class="ui huge dividing green header">New Application</h1>
-  	<div class="eight wide column">
-			<h2 class="ui medium dividing header">Required fields</h2>
-			<div class="ui form">
-				<div class="required field">
-					<label for="">Where are you applying?</label>
-					{{#ui-dropdown class="search selection" allowAdditions=true selected=this.model.company onChange=(action (mut this.model.company)) as |execute mapper|}}
-					  <div class="default text">Enter name...</div>
-					  <i class="dropdown icon"></i>
-					  <div class="menu">
-					  	{{#each this.companies as |company|}}
-					  	  <div data-value="{{map-value mapper company}}" class="item">
-					  	  	{{company}}
-					  	  </div>
-					  	{{/each}}
-					  </div>
-					{{/ui-dropdown}}
-				</div>
-				<div class="required field">
-					<label for="">What position do you apply for?</label>
-					{{#ui-dropdown class="search selection" allowAdditions=true selected=this.model.occupation onChange=(action (mut this.model.occupation)) as |execute mapper|}}
-					  <div class="default text">Enter position...</div>
-					  <i class="dropdown icon"></i>
-					  <div class="menu">
-					  	{{#each this.occupations as |occupation|}}
-					  	  <div data-value="{{map-value mapper occupation}}" class="item">
-					  	  	{{occupation}}
-					  	  </div>
-					  	{{/each}}
-					  </div>
-					{{/ui-dropdown}}
-				</div>
-				<h2 class="ui medium dividing header">Optional fields</h2>
-				<div class="field">
-					<label for="">Status of your application</label>
-					{{#ui-dropdown class="search selection" allowAdditions=true selected=this.model.status onChange=(action (mut this.model.status)) as |execute mapper|}}
-					  <div class="default text">Enter status...</div>
-					  <i class="dropdown icon"></i>
-					  <div class="menu">
-					  	{{#each this.statuses as |status|}}
-					  	  <div data-value="{{map-value mapper status}}" class="item">
-					  	  	{{status}}
-					  	  </div>
-					  	{{/each}}
-					  </div>
-					{{/ui-dropdown}}
-				</div>
-				<div class="field">
-					<label for="">How did you find out about the job?</label>
-					{{#ui-dropdown class="search selection" allowAdditions=true selected=this.model.source onChange=(action (mut this.model.source)) as |execute mapper|}}
-					  <div class="default text">Enter source...</div>
-					  <i class="dropdown icon"></i>
-					  <div class="menu">
-					  	{{#each this.sources as |source|}}
-					  	  <div data-value="{{map-value mapper source}}" class="item">
-					  	  	{{source}}
-					  	  </div>
-					  	{{/each}}
-					  </div>
-					{{/ui-dropdown}}
-				</div>
-				<div class="field">
-					<label for="">Website Link to quickly go to Career Center</label>
-					{{input value=this.posting_url placeholder="Enter url..." type="url"}}
-				</div>
-				<div class="field">
-					<label for="">When is the deadline?</label>
-					{{input value=this.model.deadline placeholder="" type="date"}}
-				</div>
-				<div class="field">
-					<label for="">Notes</label>
-					{{textarea value=this.model.note placeholder="Enter notes..." maxlength="255"}}
-				</div>
-			</div>
-  	</div>
-  	<div class="eight wide column">
-			<h2 class="ui medium dividing header">Add Recruiters Info</h2>
-			<div class="ui form">
-				<div class="field">
-					<label for="">Name</label>
-					{{input value=this.recruiterName placeholder="Enter recruiter name..." type="text"}}
-				</div>
-				<div class="field">
-					<label for="">E-Mail</label>
-					{{input value=this.recruiterMail placeholder="Enter recruiter mail..." type="email"}}
-				</div>
-				<div class="field">
-					<label for="">Tel</label>
-					{{input value=this.recruiterTel placeholder="Enter recruiter tel..." type="tel"}}
-				</div>
-				<div class="field">
-					<label for="">Fax</label>
-					{{input value=this.recruiterFax placeholder="Enter recruiter fax..." type="text"}}
-				</div>
-			</div>
-		</div>
+    <h1 class="ui huge dividing green header">New Application</h1>
+    <div class="eight wide column">
+      <h2 class="ui medium dividing header">Required fields</h2>
+      <div class="ui form">
+        <div class="required field">
+          <label for="">Where are you applying?</label>
+          {{#ui-dropdown class="search selection" allowAdditions=true selected=this.model.company onChange=(action (mut this.model.company)) as |execute mapper|}}
+          <div class="default text">Enter name...</div>
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            {{#each this.companies as |company|}}
+            <div data-value="{{map-value mapper company}}" class="item">
+              {{company}}
+            </div>
+            {{/each}}
+          </div>
+          {{/ui-dropdown}}
+        </div>
+        <div class="required field">
+          <label for="">What position do you apply for?</label>
+          {{#ui-dropdown class="search selection" allowAdditions=true selected=this.model.occupation onChange=(action (mut this.model.occupation)) as |execute mapper|}}
+          <div class="default text">Enter position...</div>
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            {{#each this.occupations as |occupation|}}
+            <div data-value="{{map-value mapper occupation}}" class="item">
+              {{occupation}}
+            </div>
+            {{/each}}
+          </div>
+          {{/ui-dropdown}}
+        </div>
+        <h2 class="ui medium dividing header">Optional fields</h2>
+        <div class="field">
+          <label for="">Status of your application</label>
+          {{#ui-dropdown class="search selection" allowAdditions=true selected=this.model.status onChange=(action (mut this.model.status)) as |execute mapper|}}
+          <div class="default text">Enter status...</div>
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            {{#each this.statuses as |status|}}
+            <div data-value="{{map-value mapper status}}" class="item">
+              {{status}}
+            </div>
+            {{/each}}
+          </div>
+          {{/ui-dropdown}}
+        </div>
+        <div class="field">
+          <label for="">How did you find out about the job?</label>
+          {{#ui-dropdown class="search selection" allowAdditions=true selected=this.model.source onChange=(action (mut this.model.source)) as |execute mapper|}}
+          <div class="default text">Enter source...</div>
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            {{#each this.sources as |source|}}
+            <div data-value="{{map-value mapper source}}" class="item">
+              {{source}}
+            </div>
+            {{/each}}
+          </div>
+          {{/ui-dropdown}}
+        </div>
+        <div class="field">
+          <label for="">Website Link to quickly go to Career Center</label>
+          {{input value=this.model.posting_url placeholder="Enter url..." type="url"}}
+        </div>
+        <div class="field">
+          <label for="">When is the deadline?</label>
+          {{input value=this.model.deadline placeholder="" type="date"}}
+        </div>
+        <div class="field">
+          <label for="">Notes</label>
+          {{textarea value=this.model.note placeholder="Enter notes..." maxlength="255"}}
+        </div>
+      </div>
+    </div>
+    <div class="eight wide column">
+      <h2 class="ui medium dividing header">Add Recruiters Info</h2>
+      <div class="ui form">
+        <div class="field">
+          <label for="">Name</label>
+          {{input value=this.recruiterName placeholder="Enter recruiter name..." type="text"}}
+        </div>
+        <div class="field">
+          <label for="">E-Mail</label>
+          {{input value=this.recruiterMail placeholder="Enter recruiter mail..." type="email"}}
+        </div>
+        <div class="field">
+          <label for="">Tel</label>
+          {{input value=this.recruiterTel placeholder="Enter recruiter tel..." type="tel"}}
+        </div>
+        <div class="field">
+          <label for="">Fax</label>
+          {{input value=this.recruiterFax placeholder="Enter recruiter fax..." type="text"}}
+        </div>
+      </div>
+    </div>
   </div> <br>
-	<button class="ui black button" {{action "redirect"}}><i class="angle left icon"></i>Back to Dashboard</button> &nbsp;&nbsp;&nbsp;
-	<button class="ui green button" {{action "save"}} type="submit"><i class="save icon"></i>Save Application</button>
+  <button class="ui black button" {{action "redirect"}}><i class="angle left icon"></i>Back to Dashboard</button>
+  &nbsp;&nbsp;&nbsp;
+  <button class="ui green button" {{action "save"}} type="submit"><i class="save icon"></i>Save Application</button>
 </div>

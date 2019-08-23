@@ -9,7 +9,7 @@ export default Controller.extend({
         async save() {
             try {
                 if (this.model.company && this.model.occupation) {
-                    const recruiter = {
+                    let recruiter = {
                         name: this.recruiterName,
                         email: this.recruiterMail,
                         tel: this.recruiterTel,
@@ -17,6 +17,7 @@ export default Controller.extend({
                     };
                     set(this.model, 'recruiter', recruiter);
                     await this.model.save();
+                    recruiter = null;
                     this.transitionToRoute('/applications')
                 } else {
                     this.toastr.error('Please add company and occupation', 'Warning');
