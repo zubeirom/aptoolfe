@@ -24,6 +24,7 @@ Router.map(function() {
   });
   this.route('terms-and-condition');
   this.route('privacy-policy');
+  this.route('my-account');
 });
 
 export default Router;
