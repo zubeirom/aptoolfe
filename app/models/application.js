@@ -3,6 +3,7 @@ import { computed } from '@ember/object';
 
 export default DS.Model.extend({
     account: DS.belongsTo({ async: false }),
+    account_id: DS.attr(),
     company: DS.attr(),
     created: DS.attr(),
     status: DS.attr(),
