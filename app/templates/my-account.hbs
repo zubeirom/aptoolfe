@@ -1,1 +1,37 @@
-<div></div>
+<div class="ui raised segment">
+  <br>
+  <h1 class="ui huge dividing header">My Account</h1>
+  <div class="ui grid">
+    <div class="eight wide column">
+      <h2 class="ui medium dividing header">Personal Information</h2>
+      <div class="ui form">
+        <div class="field">
+          <label for="">Firstname</label>
+          {{model.firstname}}
+        </div>
+        <div class="field">
+          <label for="">Lastname</label>
+          {{model.lastname}}
+        </div>
+        <div class="field">
+          <label for="">Username</label>
+          {{model.username}}
+        </div>
+      </div>
+    </div>
+    <div class="eight wide column">
+      <h2 class="ui medium dividing header">Job Search Keywords</h2>
+      <div class="ui form">
+        <div class="field">
+          <label for="">Enter Keywords</label>
+          {{input value=this.keyword placeholder="For e.g. Software" enter=(action "pushKeyword" this.keyword)}} <br>
+          {{#each model.jobKeywords as |item|}}
+            <div class="ui label">
+              <i class="trash icon"></i> {{item}}
+            </div>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

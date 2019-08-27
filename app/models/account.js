@@ -9,5 +9,5 @@ export default DS.Model.extend({
     password: DS.attr('string'),
     statuses: DS.attr(),
     socials: DS.attr(),
-    jobKeywords: DS.attr()
+    jobKeywords: DS.attr({ defaultValue: [] })
 });
