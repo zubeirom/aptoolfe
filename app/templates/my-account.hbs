@@ -7,11 +7,11 @@
       <div class="ui form">
         <div class="field">
           <label for="">Firstname</label>
-          {{model.firstname}}
+          {{input value=model.firstname type="text" placeholder="Enter firstname..."}}
         </div>
         <div class="field">
           <label for="">Lastname</label>
-          {{model.lastname}}
+          {{input value=model.lastname type="text" placeholder="Enter lastname..."}}
         </div>
         <div class="field">
           <label for="">Username</label>
@@ -24,14 +24,24 @@
       <div class="ui form">
         <div class="field">
           <label for="">Enter Keywords</label>
-          {{input value=this.keyword placeholder="For e.g. Software" enter=(action "pushKeyword" this.keyword)}} <br>
-          {{#each model.jobKeywords as |item|}}
-            <div class="ui label">
+          {{input value=this.keyword placeholder="For e.g. Software" enter=(action "addKeyword" this.keyword)}} <br> <br>
+          {{#each model.job_keywords as |item|}}
+            <a class="ui label" {{action "deleteKeyword" item}}>
               <i class="trash icon"></i> {{item}}
-            </div>
+            </a>
           {{/each}}
         </div>
       </div>
     </div>
-  </div>
+  </div> <br>
+  {{#if segment}}
+    <div class="ui raised red segment">
+      By deleting this account, you are deleting all of you applications and the events! <br><br>
+      <button class="ui red inverted button"><i class="trash icon"></i> Continue</button>
+      <button class="ui blue button" {{action (mut segment) false}}>Cancel</button>
+    </div>
+  {{else}}
+    <button class="ui inverted green button" type="submit" {{action "saveChanges"}}><i class="save icon"></i> Save Changes</button> &nbsp;&nbsp;&nbsp;
+    <button class="ui red button" type="submit" {{action (mut segment) true}}><i class="trash icon"></i>Delete Account</button>
+  {{/if}}
 </div>
