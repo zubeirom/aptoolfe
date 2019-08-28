@@ -28,6 +28,10 @@ input {
   font-family: 'Lexend Deca', sans-serif !important;
 }
 
+#backbutton {
+  border-radius: 100px !important;
+}
+
 #sidebar {
   position: fixed;
   height: 100vh;

@@ -63,5 +63,10 @@
       </div>
     </div>
   </div>
+  {{#link-to "applications.info.event.info" this.model.id}}
+    <button class="ui circular inverted {{this.model.application.statusColor}} icon button" id="backbutton">
+      <i class="angle left icon"></i>
+    </button>
+  {{/link-to}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <button class="ui {{this.model.application.statusColor}} button" {{action "update"}}><i class="save icon"></i>Save Changes</button>
 </div>

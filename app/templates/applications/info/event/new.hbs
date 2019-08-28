@@ -61,8 +61,10 @@
       </div>
     </div>
   </div>
-  {{#link-to "applications.info" this.model}}
-    <button class="ui black button"><i class="angle left icon"></i>Back to Application</button>
-  {{/link-to}}
+  {{#link-to "applications.info" this.model.id}}
+    <button class="ui circular inverted {{this.model.statusColor}} icon button" id="backbutton">
+      <i class="angle left icon"></i>
+    </button>
+  {{/link-to}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <button class="ui {{this.model.statusColor}} button" {{action "save"}}><i class="save icon"></i>Save Event</button>
 </div>
