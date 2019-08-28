@@ -26,7 +26,7 @@
           <label for="">Enter Keywords</label>
           {{input value=this.keyword placeholder="For e.g. Software" enter=(action "addKeyword" this.keyword)}} <br> <br>
           {{#each model.job_keywords as |item|}}
-            <a class="ui label" {{action "deleteKeyword" item}}>
+            <a class="ui label" role="button" {{action "deleteKeyword" item}}>
               <i class="trash icon"></i> {{item}}
             </a>
           {{/each}}
