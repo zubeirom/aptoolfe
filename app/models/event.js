@@ -8,4 +8,5 @@ export default DS.Model.extend({
     application: DS.belongsTo({ async: false }),
     date: DS.attr(),
     note: DS.attr(),
+    geometry: DS.attr()
 });

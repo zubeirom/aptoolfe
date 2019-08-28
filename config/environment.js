@@ -23,6 +23,10 @@ module.exports = function(environment) {
     }
   };
 
+  ENV['ember-google-maps'] = {
+    key: 'AIzaSyAwH4Tq9WrHY3LtgO9rElgg4MI9i8Tmhao'
+  }
+
 
   if (environment === 'development') {
     ENV.host = 'http://localhost:3000'
