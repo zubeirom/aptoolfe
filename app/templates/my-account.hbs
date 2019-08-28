@@ -37,7 +37,7 @@
   {{#if segment}}
     <div class="ui raised red segment">
       By deleting this account, you are deleting all of you applications and the events! <br><br>
-      <button class="ui red inverted button"><i class="trash icon"></i> Continue</button>
+      <button class="ui red inverted button" {{action "deleteAccount"}}><i class="trash icon"></i> Continue</button>
       <button class="ui blue button" {{action (mut segment) false}}>Cancel</button>
     </div>
   {{else}}

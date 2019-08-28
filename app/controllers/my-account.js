@@ -4,6 +4,7 @@ import { inject as service } from '@ember/service';
 
 export default Controller.extend({
     toastr: service('toast'),
+    session: service(),
 
     actions: {
         addKeyword(keyword) {
@@ -19,6 +20,16 @@ export default Controller.extend({
                 this.toastr.success('Successfully changed account', 'Nice!');
             } catch (error) {
                 console.log(error)
+            }
+        },
+
+        async deleteAccount() {
+            try {
+                await this.model.destroyRecord();
+                set(this, 'segment', false);
+                this.get('session').invalidate();
+            } catch (error) {
+                console.log(error);
             }
         }
    } 
