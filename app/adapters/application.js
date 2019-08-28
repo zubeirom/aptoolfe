@@ -6,7 +6,6 @@ import DataAdapterMixin from 'ember-simple-auth/mixins/data-adapter-mixin';
 export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
     host: ENV.host,
     namespace: 'api',
-    authorizer: 'authorizer:oauth2',
     authorize(xhr) {
         let { access_token } = this.get('session.data.authenticated');
         if (isPresent(access_token)) {
