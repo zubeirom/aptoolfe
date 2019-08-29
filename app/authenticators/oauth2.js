@@ -4,4 +4,5 @@ import ENV from '../config/environment'
 export default OAuth2PasswordGrant.extend({
     serverTokenEndpoint: ENV['ember-simple-auth'].serverTokenEndpoint,
     sendClientIdAsQueryParam: true,
+    routeAfterAuthentication: 'applications'
 });
