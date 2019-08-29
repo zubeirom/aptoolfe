@@ -30,7 +30,18 @@
       <h1 class="ui huge dividing header">Applications</h1>
     </div>
     <div class="row">
-      <button class="ui green button"><i class="plus icon"></i> Add Application</button>
+      {{#ui-dropdown class="selection" selected="Bob" onChange=(action (mut this.queryType))}}
+        <div class="default text">Status</div>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          {{#each this.types as |type|}}
+            <div data-value="{{type}}" class="item">
+              {{type}}
+            </div>
+          {{/each}}
+        </div>
+      {{/ui-dropdown}}
+      {{!-- TODO: Install ember truth helper and make input by querytype --}}
     </div>
     <div class="row">
       <table class="ui single line striped selectable stackable table">
