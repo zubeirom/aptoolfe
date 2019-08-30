@@ -33,7 +33,7 @@ export default DS.Model.extend({
             case 'Coding Challenge':
                 return 'blue'
             default:
-                return 'black'
+                return 'yellow'
         }
     })
 });
