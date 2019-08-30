@@ -35,7 +35,7 @@
         <i class="dropdown icon"></i>
         <div class="menu">
           {{#each this.types as |type|}}
-            <div data-value="{{type}}" class="item">
+            <div data-value={{type}} class="item">
               {{type}}
             </div>
           {{/each}}
@@ -48,9 +48,9 @@
           <i class="dropdown icon"></i>
           <div class="menu">
             {{#each this.statuses as |status|}}
-            <div data-value="{{map-value mapper status}}" class="item">
-              {{status}}
-            </div>
+              <div data-value={{map-value mapper status}} class="item">
+                {{status}}
+              </div>
             {{/each}}
           </div>
         {{/ui-dropdown}} &nbsp;&nbsp;&nbsp;

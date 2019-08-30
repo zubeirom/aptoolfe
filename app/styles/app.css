@@ -37,6 +37,10 @@ input {
   height: 500px;
 }
 
+#social-links {
+  font-size: 25px;
+}
+
 #sidebar {
   position: fixed;
   height: 100vh;

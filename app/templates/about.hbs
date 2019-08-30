@@ -1,0 +1,52 @@
+<div class="ui raised segment">
+  <h1 class="ui large dividing header">About</h1>
+  <h4 class="ui medium header">The average person applies to more than 50 companies when searching for a job. And using simple Excel sheets won't do the job when organizing all these informations.</h4>
+  <br>
+  <h4 class="ui medium header">With the Application Process Tool (Aptool) you can organize all these applications. You can also find new jobs or internships through the Application and putting them onto your list. You can use this tool not only for company applications but also colleges and more.</h4>
+
+  <h3 class="ui header">
+    Thank you for using Aptool and good luck <i class="thumbs up icon"></i>
+  </h3>
+
+  <br>
+  <h3 class="ui medium dividing header">You have an idea to improve the app? Something that annoys you? Or just a question?</h3>
+
+  <div class="ui form">
+    <div class="field">
+      {{input value=this.email placeholder="Enter email..." type="email"}}
+      <a {{action "usemymail"}} href=>Use account e-mail</a>
+    </div>
+    <div class="field">
+      {{input value=this.subject placeholder="Enter subject" type="text"}}
+    </div>
+    <div class="field">
+      {{textarea value=this.message placeholder="Enter the message..." type="text"}}
+    </div> <br>
+    <button class="ui primary button" {{action "sendMail"}}><i class="paper plane icon"></i>Send Mail</button>
+  </div>
+  <br>
+  <h2 class="ui small dividing header">
+    About me
+  </h2>
+
+  <div class="ui basic segment">
+    <img class="ui small left floated image" src="https://imgur.com/9Mc3IiI.png" alt="zubeir mohamed">
+    <p>
+      My name is Zubeir Mohamed I am studying Data Science and AI at the University of Saarland, Germany. I work as a working student software developer and started coding around 2 years ago. Since then, my life pretty much revolves around programming. 
+      <br> <br>
+      Here you can find all my social links, let's connect :)
+    </p>
+    <a href="mailto: zubeir.mohamed@outlook.de" rel="noopener" target="_blank" id="social-links">
+      <i class="mail icon"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/zubeir-mohamed-29668217b/" rel="noopener" target="_blank" id="social-links">
+      <i class="linkedin icon"></i>      
+    </a>
+    <a href="https://twitter.com/ZubeirMohamed2" rel="noopener"  target="_blank" id="social-links"> 
+      <i class="twitter icon"></i>
+    </a>
+    <a href="https://github.com/zubeir68" rel="noopener" target="_blank" id="social-links">
+      <i class="github icon"></i>
+    </a>
+  </div>
+</div>

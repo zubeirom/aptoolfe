@@ -26,6 +26,7 @@ Router.map(function() {
   this.route('privacy-policy');
   this.route('my-account');
   this.route('jobs');
+  this.route('about');
 });
 
 export default Router;

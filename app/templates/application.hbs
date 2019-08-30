@@ -14,7 +14,9 @@
       {{#link-to "my-account" class="item"}}
         My-Account
       {{/link-to}}
-      <a class="item">About</a>
+      {{#link-to "about" class="item"}}
+        About
+      {{/link-to}}
       {{#if session.isAuthenticated}}
         <a class="item">
           <button class="ui inverted basic button" {{action "invalidate"}} >Logout</button>
