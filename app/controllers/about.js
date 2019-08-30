@@ -19,10 +19,12 @@ export default Controller.extend({
                             message: this.message
                         }
                     });
-                    this.toastr.success(res, 'Nice!');
+                    this.toastr.success(res.message, 'Nice!');
                     set(this, 'subject', '')
                     set(this, 'message', '')
                     set(this, 'email', '')
+                } else {
+                    this.toastr.warning('Please use valid email and fill out fields', 'Warning')
                 }
                 
             } catch (error) {

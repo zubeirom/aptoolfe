@@ -13,8 +13,10 @@
 
   <div class="ui form">
     <div class="field">
-      {{input value=this.email placeholder="Enter email..." type="email"}}
-      <a {{action "usemymail"}} href=>Use account e-mail</a>
+      {{input value=this.email placeholder="Enter e-mail" type="email"}}
+      {{#if session.isAuthenticated}}
+        <a {{action "usemymail"}} href=>Use account e-mail</a>     
+      {{/if}}
     </div>
     <div class="field">
       {{input value=this.subject placeholder="Enter subject" type="text"}}
