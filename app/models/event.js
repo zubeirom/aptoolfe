@@ -1,4 +1,5 @@
 import DS from 'ember-data';
+import { computed } from '@ember/object';
 
 export default DS.Model.extend({
     name: DS.attr(),
@@ -8,5 +9,9 @@ export default DS.Model.extend({
     application: DS.belongsTo({ async: false }),
     date: DS.attr(),
     note: DS.attr(),
-    geometry: DS.attr()
+    geometry: DS.attr(),
+    humanDate: computed('date', function () {
+        const newDate = new Date(this.date);
+        return newDate.getTime();
+    })
 });

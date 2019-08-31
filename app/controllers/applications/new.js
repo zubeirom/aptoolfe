@@ -4,6 +4,7 @@ import { inject as service } from '@ember/service';
 
 export default Controller.extend({
     toastr: service('toast'),
+    router: service(),
 
     actions: {
         async save() {
@@ -18,7 +19,7 @@ export default Controller.extend({
                     set(this.model, 'recruiter', recruiter);
                     await this.model.save();
                     recruiter = null;
-                    this.transitionToRoute('/applications')
+                    this.router.transitionTo('applications')
                 } else {
                     this.toastr.error('Please add company and occupation', 'Warning');
                 }
@@ -28,7 +29,7 @@ export default Controller.extend({
         },
         redirect() {
             this.model.deleteRecord();
-            this.transitionToRoute('/applications')
+            this.router.transitionTo('applications')
         }
     },
    async init() {
@@ -39,7 +40,7 @@ export default Controller.extend({
         ];
 
         this.statuses = await [
-            'In Progress', 'Submitted', 'Cancelled', 'Offer', 'Denied', 'On-Site', 'Phone Screen', 'Coding Challenge'
+            'In Progress (Not applied yet)', 'Submitted', 'Cancelled', 'Offer', 'Denied', 'On-Site', 'Phone Screen', 'Coding Challenge'
         ]
 
         this.sources = await [

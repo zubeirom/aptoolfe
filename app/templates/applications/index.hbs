@@ -1,35 +1,34 @@
 <div class="ui raised segment">
   <div class="ui padded grid">
-    <div class="row">
+    <div class="sixteen wide column">
       <h1 class="ui huge dividing header">Dashboard</h1>
-    </div>
-    <div class="center aligned row">
-      <div class="eight wide mobile four wide tablet four wide computer column">
-        <img class="ui centered small circular image" alt="placeholder">
-        <div class="ui large basic label">Label</div>
-        <p>Something else</p>
+      {{#ui-progress percent=model.progress class="grey indicating" id="progress"}}
+        <div class="bar"></div>
+        <div class="label">Applied to {{model.applied}} out of {{model.applications.length}}</div>
+      {{/ui-progress}}
+      <h2 class="ui medium dividing header">Upcoming Events</h2>
+      <div class="ui relaxed divided list">
+        {{#each model.events as |event|}}
+          <div class="item">
+            <div class="content">
+              <a class="header">
+                {{event.name}}
+              </a>
+              <div class="meta">
+                <span class="cinema">{{moment-from-now event.date}}</span>
+              </div>
+              <div class="description">
+                <p>{{event.note}}</p>
+              </div>
+              {{#link-to "applications.info.event.info" event.application.id event.id}}
+                <a class="ui {{event.application.statusColor}} label">Go To Event</a>
+              {{/link-to}}
+            </div>
+          </div>
+        {{/each}}
       </div>
-      <div class="eight wide mobile four wide tablet four wide computer column">
-        <img class="ui centered small circular image" alt="placeholder">
-        <div class="ui large basic label">Label</div>
-        <p>Something else</p>
-      </div>
-      <div class="eight wide mobile four wide tablet four wide computer column">
-        <img class="ui centered small circular image" alt="placeholder">
-        <div class="ui large basic label">Label</div>
-        <p>Something else</p>
-      </div>
-      <div class="eight wide mobile four wide tablet four wide computer column">
-        <img class="ui centered small circular image" alt="placeholder">
-        <div class="ui large basic label">Label</div>
-        <p>Something else</p>
-      </div>
-    </div>
-    <div class="ui hidden section divider"></div>
-    <div class="row">
+      <div class="ui hidden section divider"></div>
       <h1 class="ui huge dividing header">Applications</h1>
-    </div>
-    <div class="row">
       {{#ui-dropdown class="selection" selected="Bob" onChange=(action (mut this.queryType))}}
         <div class="default text">Search for...</div>
         <i class="dropdown icon"></i>
@@ -62,8 +61,6 @@
           </div>
         {{/if}}
       {{/if}}
-    </div>
-    <div class="row">
       <table class="ui single line striped selectable stackable table">
         <thead>
           <tr>
@@ -75,7 +72,7 @@
           </tr>
         </thead>
         <tbody>
-          {{#each model as |application|}} 
+          {{#each model.applications as |application|}} 
             <tr>
               <td>
                 {{#link-to "applications.info" application.id}}
@@ -95,7 +92,7 @@
               <td>{{application.occupation}}</td>
               <td>
                 {{#if application.deadline}}
-                  {{application.deadline}}
+                  {{moment-from-now application.deadline}}
                 {{else}}
                   <i>Not available</i>
                 {{/if}}
