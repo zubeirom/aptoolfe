@@ -65,7 +65,7 @@ jobs:
           at: .
       - run:
           name: Push to Heroku
-          command: git push https://git.heroku.com/aptool.git master
+          command: git push https://heroku:534c105a-25f0-4770-9404-784d6b422d9a@git.heroku.com/aptool.git master
 
 workflows:
   version: 2
