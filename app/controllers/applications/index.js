@@ -16,7 +16,7 @@ export default Controller.extend({
                 const queryApplications = await this.store.query('application', {
                     status: this.queryStatus
                 });
-                set(this, 'model', queryApplications);
+                set(this.model, 'applications', queryApplications);
             } catch (error) {
                 console.log(error);
             }
@@ -27,7 +27,7 @@ export default Controller.extend({
                 const queryApplications = await this.store.query('application', {
                     company: this.queryCompany
                 });
-                set(this, 'model', queryApplications);
+                set(this.model, 'applications', queryApplications);
             } catch (error) {
                 console.log(error);
             }
