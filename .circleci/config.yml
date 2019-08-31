@@ -57,7 +57,16 @@ jobs:
       - run:
           name: Run Tests
           command: npm run test
-
+    
+  deploy_development:
+    <<: *defaults
+    steps: 
+      - attach_workspace:
+          at: .
+      - run:
+          name: Push to Heroku
+          command: git push heroku master
+          
 workflows:
   version: 2
   build_and_test:
@@ -72,3 +81,29 @@ workflows:
       - test:
           requires:
             - install_dependencies
+  build_and_deploy:
+    jobs:
+      - checkout_code
+      - deploy_to_development:
+          requires:
+            - checkout_code
+            - install_dependencies
+            - lint
+            - test
+            - deploy_development
+          filters:
+            branches: 
+              only:
+                - dev
+      - deploy_to_production:
+          requires:
+            - checkout_code
+            - install_dependencies
+            - lint
+            - test
+            - deploy_development
+          filters:
+            branches: 
+              only:
+                - master
+
