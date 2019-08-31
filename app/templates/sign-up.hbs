@@ -62,9 +62,16 @@
             Privacy
           {{/link-to}} conditions
         </div>
-        <div class="field">
-          <button class="ui fluid green button" {{action "register"}}>Register Me</button>
-        </div>
+        {{#if confirmed}}
+          <div class="field">
+            <div class="ui green segment">
+              Please make sure to save or remember your password as you are getting logged out every 12 hours! <br>
+              <button class="ui fluid green button" {{action "register"}}>Contnue registering</button>
+            </div>
+          </div>
+        {{else}}
+            <button class="ui fluid green button" {{action (mut confirmed) true}}>Register Me</button>          
+        {{/if}}
       </div>
     </div>
   </div>
