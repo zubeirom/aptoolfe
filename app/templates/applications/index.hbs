@@ -40,7 +40,6 @@
           {{/each}}
         </div>
       {{/ui-dropdown}}
-      {{!-- TODO: Install ember truth helper and make input by querytype --}}
       {{#if (eq this.queryType "Status")}}
         {{#ui-dropdown class="search selection" allowAdditions=true selected=this.queryStatus onChange=(action (mut this.queryStatus)) as |execute mapper|}}
           <div class="default text">Enter status...</div>
