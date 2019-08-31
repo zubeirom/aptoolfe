@@ -84,13 +84,21 @@ workflows:
   build_and_deploy:
     jobs:
       - checkout_code
+      - install_dependencies:
+          requires:
+            - checkout_code
+      - lint:
+          requires:
+            - install_dependencies
+      - test:
+          requires:
+            - install_dependencies
       - deploy_to_development:
           requires:
             - checkout_code
             - install_dependencies
             - lint
             - test
-            - deploy_development
           filters:
             branches: 
               only:
