@@ -58,7 +58,7 @@ jobs:
           name: Run Tests
           command: npm run test
     
-  deploy_development:
+  deploy_to_development:
     <<: *defaults
     steps: 
       - attach_workspace:
