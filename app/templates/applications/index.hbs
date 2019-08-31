@@ -65,10 +65,10 @@
         <thead>
           <tr>
             <th>Status</th>
-            <th>Go To Website</th>
             <th>Company</th>
             <th>Position</th>
             <th>Deadline</th>
+            <th>Go To Website</th>
           </tr>
         </thead>
         <tbody>
@@ -79,20 +79,20 @@
                   <a class="ui {{application.statusColor}} label"><i class="eye icon"></i> {{application.status}}</a>  
                 {{/link-to}}
               </td>
-              <td>
-                {{#if application.posting_url}}
-                  <a href={{application.posting_url}}>
-                    <i class="link icon"></i>
-                  </a>
-                {{else}}
-                  <i>Not available</i>
-                {{/if}}
-              </td>
               <td>{{application.company}}</td>
               <td>{{application.occupation}}</td>
               <td>
                 {{#if application.deadline}}
                   {{moment-from-now application.deadline}}
+                {{else}}
+                  <i>Not available</i>
+                {{/if}}
+              </td>
+              <td>
+                {{#if application.posting_url}}
+                  <a href={{application.posting_url}} target="_blank" rel="noopener">
+                    <i class="sign in alternate icon"></i>
+                  </a>
                 {{else}}
                   <i>Not available</i>
                 {{/if}}

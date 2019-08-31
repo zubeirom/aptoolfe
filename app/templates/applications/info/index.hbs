@@ -31,6 +31,12 @@
           <i class="trash icon"></i>
           Delete Application
         </div>
+        {{#if model.posting_url}}
+          <a href={{model.posting_url}} target="_blank" rel="noopener" class="item">
+            <i class="share icon"></i>
+            Go to Website
+          </a>
+        {{/if}}
       </div>
     </div>
     <script>
@@ -57,7 +63,7 @@
         <div class="field">
           <label for="">Deadline</label>
           {{#if this.model.deadline}}
-            {{this.model.deadlline}}
+            {{this.model.deadline}}
           {{else}}
             <i>Not Available</i>
           {{/if}}
@@ -68,6 +74,14 @@
             {{this.model.source}}
           {{else}}
             <i>Not Available</i>  
+          {{/if}}
+        </div>
+        <div class="field">
+          <label for="">Url of Posting</label>
+          {{#if this.model.posting_url}}
+            {{this.model.posting_url}}
+          {{else}}
+            <i>Not Available</i>
           {{/if}}
         </div>
         <div class="field">
