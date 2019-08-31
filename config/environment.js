@@ -37,6 +37,11 @@ module.exports = function(environment) {
   }
 
   if (environment === 'test') {
+    ENV.host = 'https://api-aptool.herokuapp.com'
+    ENV['ember-simple-auth'] = {
+      serverTokenEndpoint: 'https://api-aptool.herokuapp.com/api/token',
+      routeAfterAuthentication: 'applications'
+    };
     // Testem prefers this...
     ENV.locationType = 'none';
 
