@@ -54,6 +54,11 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
+    ENV.host = 'https://api-aptool.herokuapp.com'
+    ENV['ember-simple-auth'] = {
+      serverTokenEndpoint: 'https://api-aptool.herokuapp.com/api/token',
+      routeAfterAuthentication: 'applications'
+    };
     // here you can enable a production-specific feature
   }
 
