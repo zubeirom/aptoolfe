@@ -45,6 +45,10 @@ input {
   width: 100%;
 }
 
+#logoHeader {
+  color: white
+}
+
 #sidebar {
   position: fixed;
   height: 100vh;
@@ -56,19 +60,19 @@ input {
 #sidebar .ui.menu > a.item {
   padding: 10px 20px;
   line-height: 20px;
-  color: #337ab7;
+  color: #21BA45;
   border-radius: 0 !important;
   margin-top: 0;
   margin-bottom: 0;
 }
 #sidebar .ui.menu > a.item.active {
-  background-color: #337ab7;
+  background-color: #21BA45;
   color: white;
   border: none !important;
 }
 #sidebar .ui.menu > a.item:hover {
   background-color: #eee;
-  color: #23527c;
+  color: green;
 }
 #content {
   padding-top: 56px;
