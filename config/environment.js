@@ -37,6 +37,11 @@ module.exports = function(environment) {
   }
 
   if (environment === 'test') {
+    ENV.host = 'https://aptool-1566579870459.appspot.com'
+    ENV['ember-simple-auth'] = {
+      serverTokenEndpoint: 'https://aptool-1566579870459.appspot.com/api/token',
+      routeAfterAuthentication: 'applications'
+    };
     // Testem prefers this...
     ENV.locationType = 'none';
 
@@ -49,6 +54,11 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
+    ENV.host = 'https://aptool-1566579870459.appspot.com'
+    ENV['ember-simple-auth'] = {
+      serverTokenEndpoint: 'https://aptool-1566579870459.appspot.com/api/token',
+      routeAfterAuthentication: 'applications'
+    };
     // here you can enable a production-specific feature
   }
 
