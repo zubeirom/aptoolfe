@@ -1,7 +1,7 @@
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
 import { set } from '@ember/object';
-import ENV from '../../config/environment';
+import ENV from 'aptoolfe/config/environment';
 
 export default Controller.extend({
     session: service(),
