@@ -5,6 +5,7 @@ import { set } from '@ember/object';
 export default Controller.extend({
     toastr: service('toast'),
     session: service(),
+    media: service(),
 
     checklist(obj) {
         if (obj.username !== undefined && obj.firstname !== undefined && obj.lastname !== undefined && obj.password !== undefined) {

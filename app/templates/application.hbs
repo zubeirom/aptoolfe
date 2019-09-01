@@ -9,18 +9,20 @@
       </h2>
     </a>
     <div class="right menu">
-      {{#link-to "applications.new" class="item"}}
-        <i class="plus icon"></i> Add Application
-      {{/link-to}}
-      {{#link-to "applications" class="item"}}
-        Dashboard
-      {{/link-to}}
-      {{#link-to "jobs" class="item"}}
-        Jobs
-      {{/link-to}}
-      {{#link-to "my-account" class="item"}}
-        My-Account
-      {{/link-to}}
+      {{#if session.isAuthenticated}}
+        {{#link-to "applications.new" class="item"}}
+          <i class="plus icon"></i> Add Application
+        {{/link-to}}
+        {{#link-to "applications" class="item"}}
+          Dashboard
+        {{/link-to}}
+        {{#link-to "jobs" class="item"}}
+          Jobs
+        {{/link-to}}
+        {{#link-to "my-account" class="item"}}
+          My-Account
+        {{/link-to}}
+      {{/if}}
       {{#link-to "about" class="item"}}
         About
       {{/link-to}}
@@ -54,25 +56,28 @@
       </div>
     </div>
     <div class="ui vertical borderless inverted fluid menu">
-      {{#link-to "applications.new" class="item"}}
-        <i class="plus icon"></i> Add Application
+      {{#if session.isAuthenticated}}
+        {{#link-to "applications.new" class="item"}}
+          <i class="plus icon"></i> Add Application
+        {{/link-to}}
+        {{#link-to "applications" class="item"}}
+          Dashboard
+        {{/link-to}}
+        {{#link-to "jobs" class="item"}}
+          Jobs
+        {{/link-to}}
+        {{#link-to "my-account" class="item"}}
+          My-Account
+        {{/link-to}}
+      {{/if}}
+      {{#link-to "about" class="item"}}
+        About
       {{/link-to}}
-      {{#link-to "applications" class="item"}}
-        Dashboard
-      {{/link-to}}
-      <a class="item">Jobs</a>
-      <a class="item">My Account</a>
-      <a class="item">About</a>
       {{#if session.isAuthenticated}}
         <a class="item">
           <button class="ui inverted basic button" {{action "invalidate"}}>Logout</button>
         </a>
       {{else}}
-        {{#if (media "isMobile")}}
-          {{#link-to "sign-up" class="item"}}
-            Sign-Up
-          {{/link-to}}
-        {{/if}}
         {{#link-to "login" class="item"}}
           <button class="ui inverted basic button">Login</button>
         {{/link-to}}

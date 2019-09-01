@@ -53,6 +53,16 @@
             <label>Show Password <i class="eye icon"></i></label>
           </div>
         </div>
+
+        {{#if (media 'isMobile')}}
+          <div class="field">
+            Already have an account?
+            {{#link-to "login"}}
+              Login
+            {{/link-to}} here
+          </div>
+        {{/if}}
+
         <div class="field">
           By registering to Aptool your are agreeing with our
           {{#link-to "terms-and-condition"}}

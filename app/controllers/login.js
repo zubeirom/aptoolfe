@@ -4,6 +4,7 @@ import { inject as service } from '@ember/service';
 export default Controller.extend({
     toastr: service('toast'),
     session: service(),
+    media: service(),
 
     isValid(username, password) {
         if (username === undefined || username === '' && password === undefined || password === '') {
