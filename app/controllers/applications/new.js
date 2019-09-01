@@ -18,7 +18,10 @@ export default Controller.extend({
                     };
                     set(this.model, 'recruiter', recruiter);
                     await this.model.save();
-                    recruiter = null;
+                    set(this, 'recruiterName', '');
+                    set(this, 'recruiterMail', '');
+                    set(this, 'recruiterTel', '');
+                    set(this, 'recruiterFax', '');
                     this.router.transitionTo('applications')
                 } else {
                     this.toastr.error('Please add company and occupation', 'Warning');
