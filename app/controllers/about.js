@@ -1,6 +1,7 @@
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
 import { set } from '@ember/object';
+import ENV from '../../config/environment';
 
 export default Controller.extend({
     session: service(),
@@ -11,7 +12,7 @@ export default Controller.extend({
         async sendMail() {
             try {
                 if (this.subject && this.message && this.email) {
-                    const res = await this.ajax.request('/api/send-mail', {
+                    const res = await this.ajax.request(`${ENV.host}/api/send-mail`, {
                         method: 'POST',
                         data: {
                             email: this.email,
