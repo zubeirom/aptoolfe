@@ -80,7 +80,7 @@ jobs:
           at: .
       - run:
           name: Push to Firebase
-          command: ./node_modules/.bin/firebase deploy --token $FIREBASE_DEPLOY_TOKEN
+          command: ./node_modules/.bin/firebase deploy --token $FIREBASE_TOKEN
 
 workflows:
   version: 2
