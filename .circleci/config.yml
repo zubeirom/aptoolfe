@@ -70,7 +70,7 @@ jobs:
           name: Run Tests
           command: npm run test
     
-  deploy_to_development:
+  production_deployment:
     <<: *defaults
     docker:
     - image: circleci/node:10-browsers
@@ -79,7 +79,7 @@ jobs:
       - attach_workspace:
           at: .
       - run:
-          name: Push to Firebase
+          name: Production Deployment
           command: ./node_modules/.bin/firebase deploy --token $FIREBASE_TOKEN
 
 workflows:
@@ -108,7 +108,7 @@ workflows:
       - test:
           requires:
             - install_dependencies
-      - deploy_to_development:
+      - production_deployment:
           requires:
             - checkout_code
             - install_dependencies
