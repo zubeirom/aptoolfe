@@ -42,7 +42,11 @@
           <div class="menu">
             {{#each this.statuses as |status|}}
             <div data-value="{{map-value mapper status}}" class="item">
-              {{status}}
+              {{#if (eq status "In Progress")}}             
+                {{status}} (Not applied yet)
+              {{else}}
+                {{status}}
+              {{/if}}
             </div>
             {{/each}}
           </div>

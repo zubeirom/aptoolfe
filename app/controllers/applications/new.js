@@ -40,7 +40,7 @@ export default Controller.extend({
         ];
 
         this.statuses = await [
-            'In Progress (Not applied yet)', 'Submitted', 'Cancelled', 'Offer', 'Denied', 'On-Site', 'Phone Screen', 'Coding Challenge'
+            'In Progress', 'Submitted', 'Cancelled', 'Offer', 'Denied', 'On-Site', 'Phone Screen', 'Coding Challenge'
         ]
 
         this.sources = await [
