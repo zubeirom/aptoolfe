@@ -19,12 +19,8 @@ export default Controller.extend({
             try {
                 let { username, password } = this.getProperties('username', 'password');
                 if (this.isValid(username, password)) {
-                    this.get('session').authenticate('authenticator:oauth2', username, password).then(() => {
-                        setTimeout(() => {
-                            document.location.reload();
-                        }, 100);
-                    })
-                        .catch((reason) => {
+                    this.get('session').authenticate('authenticator:oauth2', username, password)
+                    .catch((reason) => {
                         this.set('errorMessage', reason.error || reason);
                         this.toastr.error('Password or username is wrong', 'Error');
                     });
