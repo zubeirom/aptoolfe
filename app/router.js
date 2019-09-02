@@ -27,6 +27,10 @@ Router.map(function() {
   this.route('my-account');
   this.route('jobs');
   this.route('about');
+  this.route('.well-known', function() {
+    this.route('assetlink.json');
+    this.route('assetlinks.json');
+  });
 });
 
 export default Router;
