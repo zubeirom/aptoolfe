@@ -102,7 +102,10 @@
       </div>
     </div>
   </div> <br>
-  <button class="ui black button" {{action "redirect"}}><i class="angle left icon"></i>Back to Dashboard</button>
-  &nbsp;&nbsp;&nbsp;
+  {{#link-to "applications"}}
+    <button class="ui circular inverted green icon button" id="backbutton">
+      <i class="angle left icon"></i>
+    </button>
+  {{/link-to}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <button class="ui green button" {{action "save"}} type="submit"><i class="save icon"></i>Save Application</button>
 </div>
