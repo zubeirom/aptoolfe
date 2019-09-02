@@ -6,7 +6,7 @@ const path = require('path');
 
 module.exports = function(/* env */) {
   return {
-    clientAllowedKeys: ['G_MAPS_API_KEY'],
+    clientAllowedKeys: ['G_MAPS_API_KEY', 'NR_LICENSE_KEY'],
     fastbootAllowedKeys: [],
     failOnMissingKey: false,
     path: path.join(path.dirname(__dirname), '.env')

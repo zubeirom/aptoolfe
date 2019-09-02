@@ -6,6 +6,11 @@ module.exports = function(environment) {
     environment,
     rootURL: '/',
     locationType: 'auto',
+    newRelic: {
+      applicationId: 'app142785748@heroku.com',
+      licenseKey: process.env.NR_LICENSE_KEY,
+      spaMonitoring: true,
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
