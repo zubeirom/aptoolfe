@@ -6,6 +6,6 @@ export default Route.extend({
     ajax: service(),
 
     model() {
-        return this.ajax.request(`${ENV.host}/jobs`);
+        return this.ajax.request(`${ENV.host}/api/jobs`);
     }
 });
