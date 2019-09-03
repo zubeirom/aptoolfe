@@ -5,84 +5,90 @@
   <div class="four wide column"></div>
   <div class="eight wide column">
     <div class="ui green raised segment">
-      <h1 class="ui medium green header">Sign-Up for Aptool</h1>
-      <br>
-      <div class="ui form">
-        <div class="field">
-          <label for="">Enter Username</label>
-          <div class="ui left icon input">
-            <i class="user icon"></i>
-            {{input value=model.username type="text" placeholder="tyrion" enter=(action "redirect") }}
-          </div>
+      {{#if this.loader}}
+        <div class="ui active inverted dimmer">
+          <div class="ui text loader">Nice! You are getting registered right now</div>
         </div>
-        <div class="two fields">
+      {{else}}
+        <h1 class="ui medium green header">Sign-Up for Aptool</h1>
+        <br>
+        <div class="ui form">
           <div class="field">
-            <label for="">Enter Firstname</label>
-            {{input value=model.firstname type="text" placeholder="Tyrion" enter=(action "redirect")}}
-          </div>
-          <div class="field">
-            <label for="">Enter Lastname</label>
-            {{input value=model.lastname type="text" placeholder="Lannister" enter=(action "redirect")}}
-          </div>
-        </div>
-        <div class="field">
-          <label for="">Enter Password</label>
-          <div class="ui left icon input">
-            <i class="lock icon"></i>
-            {{#if this.showPassword}}
-              {{input value=model.password type="text" placeholder="redwine" enter=(action "redirect")}}
-            {{else}}
-              {{input value=model.password type="password" placeholder="redwine" enter=(action "redirect")}}
-            {{/if}}
-          </div>
-        </div>
-        <div class="field">
-          <label for="">Enter Password Again</label>
-          <div class="ui left icon input">
-            <i class="lock icon"></i>
-            {{#if this.showPassword}}
-              {{input value=this.secondPassword type="text" placeholder="redwine" enter=(action "redirect")}}
-            {{else}}
-              {{input value=this.secondPassword type="password" placeholder="redwine" enter=(action "redirect")}}
-            {{/if}}
-          </div>
-        </div>
-        <div class="field">
-          <div class="ui toggle checkbox">
-            {{input checked=this.showPassword type="checkbox" name="public" }}
-            <label>Show Password <i class="eye icon"></i></label>
-          </div>
-        </div>
-
-        {{#if (media "isMobile")}}
-          <div class="field">
-            Already have an account?
-            {{#link-to "login"}}
-              Login
-            {{/link-to}} here
-          </div>
-        {{/if}}
-
-        <div class="field">
-          By registering to Aptool your are agreeing with our
-          {{#link-to "terms-and-condition"}}
-            Terms
-          {{/link-to}} and 
-          {{#link-to "privacy-policy"}}
-            Privacy
-          {{/link-to}} conditions
-        </div>
-        {{#if confirmed}}
-          <div class="field">
-            <div class="ui green segment">
-              Please make sure to save or remember your password as you are getting logged out every 12 hours! <br>
-              <button class="ui fluid green button" {{action "register"}}>Contnue registering</button>
+            <label for="">Enter Username</label>
+            <div class="ui left icon input">
+              <i class="user icon"></i>
+              {{input value=model.username type="text" placeholder="tyrion" enter=(action "redirect") }}
             </div>
           </div>
-        {{else}}
-          <button class="ui fluid green button" {{action (mut confirmed) true}}>Register Me</button>          
-        {{/if}}
-      </div>
+          <div class="two fields">
+            <div class="field">
+              <label for="">Enter Firstname</label>
+              {{input value=model.firstname type="text" placeholder="Tyrion" enter=(action "redirect")}}
+            </div>
+            <div class="field">
+              <label for="">Enter Lastname</label>
+              {{input value=model.lastname type="text" placeholder="Lannister" enter=(action "redirect")}}
+            </div>
+          </div>
+          <div class="field">
+            <label for="">Enter Password</label>
+            <div class="ui left icon input">
+              <i class="lock icon"></i>
+              {{#if this.showPassword}}
+                {{input value=model.password type="text" placeholder="redwine" enter=(action "redirect")}}
+              {{else}}
+                {{input value=model.password type="password" placeholder="redwine" enter=(action "redirect")}}
+              {{/if}}
+            </div>
+          </div>
+          <div class="field">
+            <label for="">Enter Password Again</label>
+            <div class="ui left icon input">
+              <i class="lock icon"></i>
+              {{#if this.showPassword}}
+                {{input value=this.secondPassword type="text" placeholder="redwine" enter=(action "redirect")}}
+              {{else}}
+                {{input value=this.secondPassword type="password" placeholder="redwine" enter=(action "redirect")}}
+              {{/if}}
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui toggle checkbox">
+              {{input checked=this.showPassword type="checkbox" name="public" }}
+              <label>Show Password <i class="eye icon"></i></label>
+            </div>
+          </div>
+  
+          {{#if (media "isMobile")}}
+            <div class="field">
+              Already have an account?
+              {{#link-to "login"}}
+                Login
+              {{/link-to}} here
+            </div>
+          {{/if}}
+  
+          <div class="field">
+            By registering to Aptool your are agreeing with our
+            {{#link-to "terms-and-condition"}}
+              Terms
+            {{/link-to}} and 
+            {{#link-to "privacy-policy"}}
+              Privacy
+            {{/link-to}} conditions
+          </div>
+          {{#if confirmed}}
+            <div class="field">
+              <div class="ui green segment">
+                Please make sure to save or remember your password as you are getting logged out every 12 hours! <br>
+                <button class="ui fluid green button" {{action "register"}}>Contnue registering</button>
+              </div>
+            </div>
+          {{else}}
+            <button class="ui fluid green button" {{action (mut confirmed) true}}>Register Me</button>          
+          {{/if}}
+        </div>
+      {{/if}}
     </div>
   </div>
   <div class="four wide column"></div>

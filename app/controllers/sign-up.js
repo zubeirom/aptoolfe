@@ -18,6 +18,7 @@ export default Controller.extend({
     actions: {
 
         async register() {
+            set(this, 'loader', true);
             if (this.checklist(this.model)) {
                 if (this.model.password === this.secondPassword) {
                     if (this.model.password.length < 8) {
@@ -41,6 +42,7 @@ export default Controller.extend({
                     this.toastr.warning('Passwords don\'t match', 'Warning');
                 }
             }
+            set(this, 'loader', false);
         },
 
         redirect() {

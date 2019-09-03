@@ -1,5 +1,6 @@
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
+import { set } from '@ember/object';
 
 export default Controller.extend({
     toastr: service('toast'),
@@ -17,6 +18,7 @@ export default Controller.extend({
     actions: {
         authenticate() {
             try {
+                set(this, 'loader', true);
                 let { username, password } = this.getProperties('username', 'password');
                 if (this.isValid(username, password)) {
                     this.get('session').authenticate('authenticator:oauth2', username, password)
@@ -25,6 +27,7 @@ export default Controller.extend({
                         this.toastr.error('Password or username is wrong', 'Error');
                     });
                 }
+                set(this, 'loader', false);
             } catch (error) {
                 if (error) {
                     this.toastr.error('Password or username is wrong', 'Error');
