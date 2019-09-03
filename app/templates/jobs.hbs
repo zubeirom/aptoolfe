@@ -1,3 +1,34 @@
 <div class="ui raised segment">
-  <h1 class="ui large dividing header">Upcoming</h1>
+  <h1 class="ui large dividing header">Job Portal</h1> <i>(currently only fetching technical jobs)</i>
+  <br> <br>
+  <div class="ui grid">
+    <div class="eight wide column">
+      <div class="ui form">
+        <div class="field">
+          <label for="">Keywords</label>
+          {{input value=this.keywords placeholder="Enter keywords for e.g. software developer"}}
+        </div>
+      </div>
+    </div>
+    <div class="eight wide column">
+      <div class="ui form">
+        <div class="field">
+          <label for="">Location</label>
+          {{input value=this.keywords placeholder="Enter location for e.g. San Francisco"}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui grid">
+    <div class="sixteen wide column">
+      {{#each model.jobs as |job|}}
+        {{#ui-accordion class="fluid styled"}}
+            <div class="title">{{job.title}}</div>
+            <div class="content">
+              bvoefvdofivndfon
+            </div>
+        {{/ui-accordion}}
+      {{/each}}
+    </div>
+  </div>
 </div>
