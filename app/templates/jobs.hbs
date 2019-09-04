@@ -1,3 +1,4 @@
+{{ember-load-remover}}
 <div class="ui raised segment">
   <h1 class="ui large dividing header">Job Portal</h1> <i>(currently only fetching technical jobs)</i>
   <br> <br>
@@ -41,18 +42,28 @@
               <div class="content">
                 <a href={{job.url}} target="_blank" rel="noopener">{{job.title}} at {{job.company}}</a>
                 <div class="meta">
-                  <span class="cinema">{{job.location}}</span>
+                  <span class="cinema">{{job.type}} | {{job.location}}</span>
                 </div>
                 <div class="description" >
+                  {{! template-lint-disable no-unused-block-params }}
                   {{#ui-accordion as |execute|}}
                     <div class="title">
                       <i class="dropdown icon"></i>
                       <b>DESCRIPTION</b>
                     </div>
+                    {{! template-lint-disable no-triple-curlies}}
                     <div class="content">
                       {{{job.description}}}
                     </div>
                   {{/ui-accordion}}
+                </div>
+                <div class="extra">
+                  <a class="ui blue label" href={{job.company_url}} target="_blank" rel="noopener"><i class="share icon"></i> Go To Posting</a>
+                  {{#if saved}}
+                    <div class="ui basic label"><i class="green check icon"></i> Saved</div>
+                  {{else}}
+                    <div class="ui green label" {{action "addApplication" job.title job.company}}><i class="plus icon"></i> Add Application to list</div>
+                  {{/if}}
                 </div>
               </div>
             </div>

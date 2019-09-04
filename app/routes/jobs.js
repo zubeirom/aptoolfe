@@ -1,25 +1,38 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 import ENV from 'aptoolfe/config/environment';
-import RSVP from 'rsvp';
 import { htmlSafe } from '@ember/template';
+import { set } from '@ember/object';
 
 export default Route.extend({
     ajax: service(),
 
-    model() {
-        return RSVP.hash({
-            jobs: this.ajax.request(`${ENV.host}/api/jobs`),
-            applications: this.store.findAll('application')
-        })   
+    willTransition() {
+        this._super(...arguments);
+        set(this, 'loader', true);
     },
 
-    afterModel(model) { 
-        console.log(model);
-        let { jobs } = model;
-        jobs.forEach(job => {
-            const html = htmlSafe(job.description);
-            job.html = html;
+    model() {
+        return this.store.findAll('account').then(account => {
+            return account.get('firstObject')
         });
+    },
+
+    async afterModel(model) {
+        set(this, 'loader', true);
+        try {     
+            const jobs = await this.ajax.request(`${ENV.host}/api/jobs`);
+            set(model, 'jobs', jobs);
+            console.log(model);
+            jobs.forEach(job => {
+                const html = htmlSafe(job.description);
+                job.html = html;
+            });
+            set(this, 'loader', false);
+
+        } catch (error) {
+            console.log(error);
+            set(this, 'loader', false);
+        }
     }
 });

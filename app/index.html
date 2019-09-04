@@ -47,6 +47,11 @@
   </head>
   <body>
     {{content-for "body"}}
+    <div class="ember-load-indicator">
+      <div class="ui active center inline dimmer">
+        <div class="ui large text loader">Loading</div>
+      </div>
+    </div>
 
     <script src="{{rootURL}}assets/vendor.js"></script>
     <script src="{{rootURL}}assets/aptoolfe.js"></script>

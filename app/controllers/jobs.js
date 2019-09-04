@@ -22,6 +22,19 @@ export default Controller.extend({
             } catch (error) {
                 console.log(error);
             }
+        },
+
+        async addApplication(title, company) {
+            try {
+                // const saveApplication = await this.store.createRecord('application', {
+                //     account_id: this.model.id,
+                //     company,
+                //     occupation: title
+                // });
+                set(this, 'saved', true);
+            } catch (error) {
+                console.log(error);
+            }
         }
     }
 });
