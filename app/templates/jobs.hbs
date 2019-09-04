@@ -6,7 +6,7 @@
       <div class="ui form">
         <div class="field">
           <label for="">Keywords</label>
-          {{input value=this.keywords placeholder="Enter keywords for e.g. software developer"}}
+          {{input value=this.keywords placeholder="Enter keywords for e.g. software developer" keyUp=(action "queryJobs") }}
         </div>
       </div>
     </div>
@@ -14,21 +14,51 @@
       <div class="ui form">
         <div class="field">
           <label for="">Location</label>
-          {{input value=this.keywords placeholder="Enter location for e.g. San Francisco"}}
+          {{input value=this.location placeholder="Enter location for e.g. San Francisco" keyUp=(action "queryJobs")}}
         </div>
       </div>
     </div>
   </div>
   <div class="ui grid">
     <div class="sixteen wide column">
-      {{#each model.jobs as |job|}}
-        {{#ui-accordion class="fluid styled"}}
-          <div class="title">{{job.title}}</div>
-          <div class="content">
-            bvoefvdofivndfon
-          </div>
-        {{/ui-accordion}}
-      {{/each}}
+      {{#if loader}}
+        <div class="ui active inverted dimmer">
+          <div class="ui text loader">Loading</div>
+        </div>
+        <br>
+        <br>
+      {{else}}
+        <div class="ui divided items">
+          {{#each model.jobs as |job|}}
+            <div class="item">
+              <div class="image">
+                {{#if job.company_logo}}
+                  <img src={{job.company_logo}} alt="company_logo">
+                {{else}}
+                  <img src="https://imgur.com/h53b4Dv.png" alt="placeholder">
+                {{/if}}
+              </div>
+              <div class="content">
+                <a href={{job.url}} target="_blank" rel="noopener">{{job.title}} at {{job.company}}</a>
+                <div class="meta">
+                  <span class="cinema">{{job.location}}</span>
+                </div>
+                <div class="description" >
+                  {{#ui-accordion as |execute|}}
+                    <div class="title">
+                      <i class="dropdown icon"></i>
+                      <b>DESCRIPTION</b>
+                    </div>
+                    <div class="content">
+                      {{{job.description}}}
+                    </div>
+                  {{/ui-accordion}}
+                </div>
+              </div>
+            </div>
+          {{/each}}
+        </div>
+      {{/if}}
     </div>
   </div>
 </div>
