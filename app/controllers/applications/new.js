@@ -8,6 +8,7 @@ export default Controller.extend({
 
     actions: {
         async save() {
+            set(this, 'loader', true);
             try {
                 if (this.model.company && this.model.occupation) {
                     let recruiter = {
@@ -26,7 +27,9 @@ export default Controller.extend({
                 } else {
                     this.toastr.error('Please add company and occupation', 'Warning');
                 }
+                set(this, 'loader', false);
             } catch (error) {
+                set(this, 'loader', false);
                 console.log(error);
             }
         },

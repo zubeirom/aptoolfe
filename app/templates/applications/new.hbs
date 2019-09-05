@@ -1,5 +1,12 @@
 {{! template-lint-disable }}
 {{ember-load-remover}}
+{{#if loader}}
+  <div class="ui green segment">
+    <div class="ui active inverted dimmer">
+      <div class="ui text loader">Saving Application</div>
+    </div><br><br>
+  </div>
+{{else}}
 <div class="ui raised green segment"><br>
   <div class="ui padded stackable grid">
     <h1 class="ui huge dividing green header">New Application</h1>
@@ -110,3 +117,4 @@
   {{/link-to}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <button class="ui green button" {{action "save"}} type="submit"><i class="save icon"></i>Save Application</button>
 </div>
+{{/if}}

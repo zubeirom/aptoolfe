@@ -5,12 +5,7 @@
 <div class="ui stackable grid">
   <div class="four wide column"></div>
   <div class="eight wide column">
-    <div class="ui green raised segment">
-      {{#if this.loader}}
-        <div class="ui active inverted dimmer">
-          <div class="ui text loader">Loading your Account</div>
-        </div>
-      {{else}}
+      <div class="ui green raised segment">
         <h1 class="ui medium green header">
           Login to your Account
         </h1>
@@ -45,12 +40,15 @@
               Don't have an account? {{#link-to "sign-up"}} Sign Up {{/link-to}} here
             </div>
           {{/if}}
-          <div class="field">
-            <button class="ui fluid green button" {{action "authenticate"}}>Login</button>
-          </div>
-        </div>
-      {{/if}}
-    </div>
+          {{#if this.loader}}
+            <div class="ui active centered inline loader"></div>
+          {{else}}
+            <div class="field">
+              <button class="ui fluid green button" {{action "authenticate"}} >Login</button>
+            </div>
+          {{/if}}
+      </div>
+      </div>
   </div>
   <div class="four wide column"></div>
 </div>

@@ -7,6 +7,7 @@ export default Controller.extend({
 
     actions: {
         async save() {
+            set(this, 'loader', true);
             try {
                 let contact = {
                     name: this.recruiterName,
@@ -30,8 +31,10 @@ export default Controller.extend({
                 } else {
                     this.toastr.error('Please fill out name and date of the event', 'Warning!')
                 }
+                set(this, 'loader', false);
             } catch (error) {
-                console.log(error)
+                set(this, 'loader', false);
+                console.log(error);
             }
         }
     }
