@@ -61,7 +61,7 @@
           </div>
         {{/if}}
       {{/if}}
-      <table class="ui single line striped selectable stackable table">
+      <table class="ui selectable fixed stackable table">
         <thead>
           <tr>
             <th>Status</th>
@@ -72,15 +72,19 @@
           </tr>
         </thead>
         <tbody>
-          {{#each model.applications as |application|}} 
+          {{#each model.applications as |application|}}
             <tr>
               <td>
                 {{#link-to "applications.info" application.id}}
-                  <a class="ui {{application.statusColor}} label"><i class="eye icon"></i> {{application.status}}</a>  
+                  <a class="ui  {{application.statusColor}} label"><i class="eye icon"></i> {{application.status}}</a>  
                 {{/link-to}}
               </td>
-              <td>{{application.company}}</td>
-              <td>{{application.occupation}}</td>
+              <td >
+                {{application.company}}
+              </td>
+              <td >
+                {{application.occupation}} 
+              </td>
               <td>
                 {{#if application.deadline}}
                   {{moment-from-now application.deadline}}

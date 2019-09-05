@@ -53,6 +53,10 @@ a {
   cursor: pointer;
 }
 
+#longtext {
+  word-break: break-all !important;
+}
+
 #sidebar {
   position: fixed;
   height: 100vh;
