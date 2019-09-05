@@ -18,7 +18,6 @@ export default Controller.extend({
     actions: {
         async authenticate() {
             set(this, 'loader', true);
-            console.log(this.loader)
             try {
                 let { username, password } = this.getProperties('username', 'password');
                 if (this.isValid(username, password)) {
@@ -30,7 +29,6 @@ export default Controller.extend({
                     });
                 }
                 set(this, 'loader', false);
-                console.log(this.loader)
             } catch (error) {
                 set(this, 'loader', false);
                 if (error) {
