@@ -10,21 +10,25 @@ export default Route.extend(ApplicationRouteMixin, {
     ajax: service(),
 
     model() {
-        return this.store.findAll('account').then(account => {
-            return account.get('firstObject')
-        });
+        if (this.session.isAuthenticated) {
+            return this.store.findAll('account').then(account => {
+                return account.get('firstObject')
+            });
+        }
     },
 
     async afterModel(model) {
         try {
-            if (model.job_keywords.length) {
-                const joined = model.job_keywords.join(', ');
-                console.log(joined)
-                const queryJobs = await this.ajax.request(`${ENV.host}/api/jobs?search=${joined}&location=${undefined}`);
-                set(model, 'jobs', queryJobs);
-            } else {
-                const jobs = await this.ajax.request(`${ENV.host}/api/jobs`);
-                set(model, 'jobs', jobs);
+            if (this.session.isAuthenticated) {
+                if (model.job_keywords.length) {
+                    const joined = model.job_keywords.join(', ');
+                    console.log(joined)
+                    const queryJobs = await this.ajax.request(`${ENV.host}/api/jobs?search=${joined}&location=${undefined}`);
+                    set(model, 'jobs', queryJobs);
+                } else {
+                    const jobs = await this.ajax.request(`${ENV.host}/api/jobs`);
+                    set(model, 'jobs', jobs);
+                }
             }
         } catch (error) {
             console.log(error);
