@@ -12,7 +12,7 @@ module('Integration | Component | job-segment', function(hooks) {
 
     await render(hbs`{{job-segment}}`);
 
-    assert.equal(this.element.textContent.trim(), '');
+    assert.equal(this.element.textContent.replace(/[ \n\r]+/g, ''), 'GoToPostingAddApplicationtolist');
 
     // Template block usage:
     await render(hbs`
@@ -21,6 +21,6 @@ module('Integration | Component | job-segment', function(hooks) {
       {{/job-segment}}
     `);
 
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.equal(this.element.textContent.replace(/[ \n\r]+/g, ''), 'GoToPostingAddApplicationtolist');
   });
 });
