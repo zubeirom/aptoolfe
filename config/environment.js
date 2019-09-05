@@ -30,8 +30,11 @@ module.exports = function(environment) {
     key: process.env.G_MAPS_API_KEY
   }
 
-
   if (environment === 'development') {
+    ENV.contentSecurityPolicy = {
+      // ... other stuff here
+      'connect-src': '\'self\' http://localhost:4200'
+    }
     ENV.host = 'http://localhost:3000'
     ENV['ember-simple-auth'] = {
       serverTokenEndpoint: 'http://localhost:3000/api/token',
@@ -40,6 +43,10 @@ module.exports = function(environment) {
   }
 
   if (environment === 'test') {
+    ENV.contentSecurityPolicy = {
+      // ... other stuff here
+      'connect-src': '\'self\' https://aptoolapi.herokuapp.com'
+    }
     ENV.host = 'https://aptoolapi.herokuapp.com'
     ENV['ember-simple-auth'] = {
       serverTokenEndpoint: 'https://aptoolapi.herokuapp.com/api/token',
@@ -57,6 +64,10 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
+    ENV.contentSecurityPolicy = {
+      // ... other stuff here
+      'connect-src': '\'self\' https://aptoolapi.herokuapp.com'
+    }
     ENV.host = 'https://aptoolapi.herokuapp.com'
     ENV['ember-simple-auth'] = {
       serverTokenEndpoint: 'https://aptoolapi.herokuapp.com/api/token',
