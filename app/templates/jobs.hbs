@@ -57,14 +57,7 @@
                     </div>
                   {{/ui-accordion}}
                 </div>
-                <div class="extra">
-                  <a class="ui blue label" href={{job.company_url}} target="_blank" rel="noopener"><i class="share icon"></i> Go To Posting</a>
-                  {{#if saved}}
-                    <div class="ui basic label"><i class="green check icon"></i> Saved</div>
-                  {{else}}
-                    <div class="ui green label" {{action "addApplication" job.title job.company}}><i class="plus icon"></i> Add Application to list</div>
-                  {{/if}}
-                </div>
+                <JobSegment @model={{job}} @account={{model}} />
               </div>
             </div>
           {{/each}}

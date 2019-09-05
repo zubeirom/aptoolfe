@@ -1,1 +1,12 @@
-{{yield}}
+<div class="extra">
+    <a class="ui blue label" href={{model.company_url}} target="_blank" rel="noopener"><i class="share icon"></i> Go To Posting</a>
+  {{#if saved}}
+    <div class="ui basic label"><i class="green check icon"></i> Saved</div>
+  {{else}}
+    {{#if loader}}
+      <div class="ui active inline loader"></div>
+    {{else}}
+      <a class="ui green label" {{action "addApplication" account.id model.title model.company}}><i class="plus icon"></i> Add Application to list</a>
+    {{/if}}
+  {{/if}}
+</div>

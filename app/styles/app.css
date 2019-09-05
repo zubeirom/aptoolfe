@@ -49,6 +49,10 @@ input {
   color: white
 }
 
+a {
+  cursor: pointer;
+}
+
 #sidebar {
   position: fixed;
   height: 100vh;
