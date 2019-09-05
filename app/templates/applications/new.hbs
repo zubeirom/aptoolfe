@@ -115,6 +115,6 @@
       <i class="angle left icon"></i>
     </button>
   {{/link-to}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <button class="ui green button" {{action "save"}} type="submit"><i class="save icon"></i>Save Application</button>
+  <button class="ui green {{if save "disabled" ""}}  button" {{action "save"}} type="submit"><i class="save icon"></i>Save Application</button>
 </div>
 {{/if}}

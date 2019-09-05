@@ -93,19 +93,14 @@
   >
     <div class="ui vertical borderless fluid text menu">
       {{#if session.isAuthenticated}}
-        {{#if model.job_keywords.length}}
-          <a class="active item">
-            Personalized Jobs Search
-          </a>
+        <a class="active item" {{action "refresh"}} data-content="The default theme's basic popup removes the pointing arrow.">
+          <i class="redo icon"></i> Customize Keywords in My-Account then click here
+        </a>
+        {{#if loader}}
+          <div class="ui active centered inline loader"></div>
+        {{else}}
           {{#each model.jobs as |job|}}
             <a href={{job.url}} class="item" target="_blank" rel="noopener">{{job.title}}</a>            
-          {{/each}}
-        {{else}}
-          <a class="active item">
-            Add Keywords at My-Account for personalized jobs 
-          </a>
-          {{#each model.jobs as |job|}}
-            <a href={{job.url}} class="item" target="_blank" rel="noopener">{{job.title}}</a>
           {{/each}}
         {{/if}}
       {{else}}
