@@ -3,8 +3,9 @@ import { inject as service } from '@ember/service';
 import ENV from 'aptoolfe/config/environment';
 import { htmlSafe } from '@ember/template';
 import { set } from '@ember/object';
+import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 
-export default Route.extend({
+export default Route.extend(AuthenticatedRouteMixin, {
     ajax: service(),
 
     willTransition() {
@@ -23,7 +24,6 @@ export default Route.extend({
         try {     
             const jobs = await this.ajax.request(`${ENV.host}/api/jobs`);
             set(model, 'jobs', jobs);
-            console.log(model);
             jobs.forEach(job => {
                 const html = htmlSafe(job.description);
                 job.html = html;

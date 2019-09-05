@@ -48,6 +48,7 @@
     "ember-qunit": "^3.4.1",
     "ember-resolver": "^5.0.1",
     "ember-responsive": "^3.0.5",
+    "ember-scrollable": "^0.5.2",
     "ember-service-worker": "^0.8.0",
     "ember-service-worker-asset-cache": "^0.6.4",
     "ember-service-worker-index": "^0.7.0",
