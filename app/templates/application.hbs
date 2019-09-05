@@ -93,6 +93,7 @@
   >
     <div class="ui vertical borderless fluid text menu">
       {{#if session.isAuthenticated}}
+        {{! template-lint-disable no-invalid-interactive }}
         <a class="active item" {{action "refresh"}} data-content="The default theme's basic popup removes the pointing arrow.">
           <i class="redo icon"></i> Customize Keywords in My-Account then click here
         </a>
