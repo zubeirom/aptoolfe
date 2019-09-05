@@ -18,7 +18,7 @@ export default Route.extend(ApplicationRouteMixin, {
     async afterModel(model) {
         try {
             if (model.job_keywords.length) {
-                const joined = model.job_keywords.join(', ');
+                const joined = model.job_keywords.join(',');
                 console.log(joined)
                 const queryJobs = await this.ajax.request(`${ENV.host}/api/jobs?search=${joined}&location=${undefined}`);
                 set(model, 'jobs', queryJobs);
