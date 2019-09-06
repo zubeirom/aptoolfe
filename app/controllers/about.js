@@ -10,6 +10,7 @@ export default Controller.extend({
 
     actions: {
         async sendMail() {
+            set(this, 'loader', true);
             try {
                 if (this.subject && this.message && this.email) {
                     const res = await this.ajax.request(`${ENV.host}/api/send-mail`, {
@@ -27,8 +28,10 @@ export default Controller.extend({
                 } else {
                     this.toastr.warning('Please use valid email and fill out fields', 'Warning')
                 }
+                set(this, 'loader', false);
                 
             } catch (error) {
+                set(this, 'loader', false);
                 console.log(error);
                 this.toastr.error('Sending mail went wrong, please check everything and try again', 'Failed');
             }

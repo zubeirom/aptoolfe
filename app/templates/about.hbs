@@ -9,22 +9,29 @@
   </h3>
 
   <h3 class="ui medium dividing header">You have an idea to improve the app? Something that annoys you? Or just a question?</h3>
-
-  <div class="ui form">
-    <div class="field">
-      {{input value=this.email placeholder="Enter e-mail" type="email"}}
-      {{#if session.isAuthenticated}}
-        <a {{action "usemymail"}} href=>Use account e-mail</a>     
+  
+  <div class="ui container">
+    <div class="ui form">
+      <div class="field">
+        {{input value=this.email placeholder="Enter e-mail" type="email"}}
+        {{#if session.isAuthenticated}}
+          <a {{action "usemymail"}} href=>Use account e-mail</a>     
+        {{/if}}
+      </div>
+      <div class="field">
+        {{input value=this.subject placeholder="Enter subject" type="text"}}
+      </div>
+      <div class="field">
+        {{textarea value=this.message placeholder="Enter the message..." type="text"}}
+      </div> <br>
+      {{#if loader}}
+          <div class="ui active centered inline loader"></div>
+      {{else}}
+        <button class="ui primary button" {{action "sendMail"}}><i class="paper plane icon"></i>Send Mail</button>
       {{/if}}
     </div>
-    <div class="field">
-      {{input value=this.subject placeholder="Enter subject" type="text"}}
-    </div>
-    <div class="field">
-      {{textarea value=this.message placeholder="Enter the message..." type="text"}}
-    </div> <br>
-    <button class="ui primary button" {{action "sendMail"}}><i class="paper plane icon"></i>Send Mail</button>
   </div>
+
   <br>
   <h2 class="ui small dividing header">
     About me

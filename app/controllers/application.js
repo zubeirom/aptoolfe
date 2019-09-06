@@ -18,7 +18,6 @@ export default Controller.extend({
                 if (this.session.isAuthenticated) {
                     if (this.model.job_keywords.length) {
                         const joined = this.model.job_keywords.join(', ');
-                        console.log(joined)
                         const queryJobs = await this.ajax.request(`${ENV.host}/api/p-jobs?search=${joined}`);
                         set(this.model, 'jobs', queryJobs);
                     } else {
