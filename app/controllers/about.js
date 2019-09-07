@@ -17,6 +17,8 @@ export default Controller.extend({
                         method: 'POST',
                         data: {
                             email: this.email,
+                            firstname: this.firstname,
+                            lastname: this.firstname,
                             subject: this.subject,
                             message: this.message
                         }
@@ -25,6 +27,8 @@ export default Controller.extend({
                     set(this, 'subject', '')
                     set(this, 'message', '')
                     set(this, 'email', '')
+                    set(this, 'firstname', '')
+                    set(this, 'lastname', '')
                 } else {
                     this.toastr.warning('Please use valid email and fill out fields', 'Warning')
                 }
@@ -37,12 +41,14 @@ export default Controller.extend({
             }
         },
 
-        usemymail() {
+        usemydata() {
             if (this.model.email) {
-                set(this, 'email', this.model.email)                
+                set(this, 'email', this.model.email);               
             } else {
                 this.toastr.warning('No email given, please add in My-Account', 'Warning')
             }
+            set(this, 'firstname', this.model.firstname);
+            set(this, 'lastname', this.model.lastname);
         }
     }
 });

@@ -14,9 +14,17 @@
     <div class="ui form">
       <div class="field">
         {{input value=this.email placeholder="Enter e-mail" type="email"}}
-        {{#if session.isAuthenticated}}
-          <a {{action "usemymail"}} href=>Use account e-mail</a>     
-        {{/if}}
+      </div>
+      <div class="two fields">
+        <div class="field">
+          {{input value=this.firstname placeholder="Enter firstname..."}}
+          {{#if session.isAuthenticated}}
+            <a {{action "usemydata"}} href=>Use account data</a>     
+          {{/if}}
+        </div>
+        <div class="field">
+          {{input value=this.lastname placeholder="Enter lastname..."}}
+        </div>
       </div>
       <div class="field">
         {{input value=this.subject placeholder="Enter subject" type="text"}}
@@ -27,7 +35,7 @@
       {{#if loader}}
         <div class="ui active centered inline loader"></div>
       {{else}}
-        <button class="ui primary button" {{action "sendMail"}}><i class="paper plane icon"></i>Send Mail</button>
+        <button class="ui primary button" {{action "sendMail"}}><i class="paper plane icon"></i>Send Message</button>
       {{/if}}
     </div>
   </div>
