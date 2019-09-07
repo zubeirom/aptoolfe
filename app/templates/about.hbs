@@ -18,14 +18,16 @@
       <div class="two fields">
         <div class="field">
           {{input value=this.firstname placeholder="Enter firstname..."}}
-          {{#if session.isAuthenticated}}
-            <a {{action "usemydata"}} href=>Use account data</a>     
-          {{/if}}
         </div>
         <div class="field">
           {{input value=this.lastname placeholder="Enter lastname..."}}
         </div>
       </div>
+      {{#if session.isAuthenticated}}
+        <div class="field">
+          <a {{action "usemydata"}} href=>Use account data</a>     
+        </div>
+      {{/if}}
       <div class="field">
         {{input value=this.subject placeholder="Enter subject" type="text"}}
       </div>

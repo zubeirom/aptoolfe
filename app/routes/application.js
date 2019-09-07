@@ -22,7 +22,6 @@ export default Route.extend(ApplicationRouteMixin, {
             if (this.session.isAuthenticated) {
                 if (model.job_keywords.length) {
                     const joined = model.job_keywords.join(', ');
-                    console.log(joined)
                     const queryJobs = await this.ajax.request(`${ENV.host}/api/p-jobs?search=${joined}`);
                     set(model, 'jobs', queryJobs);
                 } else {
