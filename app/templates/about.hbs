@@ -25,7 +25,7 @@
         {{textarea value=this.message placeholder="Enter the message..." type="text"}}
       </div> <br>
       {{#if loader}}
-          <div class="ui active centered inline loader"></div>
+        <div class="ui active centered inline loader"></div>
       {{else}}
         <button class="ui primary button" {{action "sendMail"}}><i class="paper plane icon"></i>Send Mail</button>
       {{/if}}
