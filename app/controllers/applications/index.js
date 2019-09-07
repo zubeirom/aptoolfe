@@ -31,6 +31,11 @@ export default Controller.extend({
             } catch (error) {
                 console.log(error);
             }
+        },
+
+        setter() {
+            console.log(this.queryStatus);
+            
         }
     }
 });
