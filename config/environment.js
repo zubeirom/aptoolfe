@@ -35,9 +35,9 @@ module.exports = function(environment) {
       // ... other stuff here
       'connect-src': '\'self\' http://localhost:4200'
     }
-    ENV.host = 'http://localhost:3000'
+    ENV.host = 'https://aptoolapi.herokuapp.com'
     ENV['ember-simple-auth'] = {
-      serverTokenEndpoint: 'http://localhost:3000/api/token',
+      serverTokenEndpoint: 'https://aptoolapi.herokuapp.com/api/token',
       routeAfterAuthentication: 'applications'
     };
   }
