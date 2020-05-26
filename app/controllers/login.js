@@ -17,6 +17,7 @@ export default Controller.extend({
 
     actions: {
         async authenticate() {
+            this.toastr.info('Server (heroku) is starting up, this might take few seconds', 'Important Info');
             set(this, 'loader', true);
             try {
                 let { username, password } = this.getProperties('username', 'password');
