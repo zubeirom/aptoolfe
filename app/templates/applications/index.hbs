@@ -8,6 +8,33 @@
         <div class="label">Applied to {{model.applied}} out of {{model.applications.length}}</div>
       {{/ui-progress}}
       <h2 class="ui medium dividing header">Upcoming Events</h2>
+      <div class="ui stackable grid">
+        <div class="eight wide column">
+          <div class="ui relaxed divided list">
+            {{#each model.events as |event|}}
+              <div class="item">
+                <div class="content">
+                  <a class="header">
+                    {{event.name}}
+                  </a>
+                  <div class="meta">
+                    <span class="cinema">{{moment-from-now event.date}}</span>
+                  </div>
+                  <div class="description">
+                    <p>{{event.note}}</p>
+                  </div>
+                  {{#link-to "applications.info.event.info" event.application.id event.id}}
+                    <a class="ui {{event.application.statusColor}} label">Go To Event</a>
+                  {{/link-to}}
+                </div>
+              </div>
+            {{/each}}
+          </div>
+        </div>
+        <div class="eight wide column">
+          
+        </div>
+      </div>
       <div class="ui relaxed divided list">
         {{#each model.events as |event|}}
           <div class="item">
